@@ -1,0 +1,133 @@
+
+<app-nav-bar (requestingView)="swipeCurrentView($event)"></app-nav-bar>
+
+
+<div *ngIf="currentView === 'mainView'">
+    <section>
+        <div>
+            <div>
+                <section class="d-flex flex-grow-1 m-auto py-4 py-xl-5" style="border-color: rgb(245,245,250);background: #02c167;padding-top: 12px;">
+                    <div class="container" style="width: 2443px;">
+                        <div class="bg-dark border rounded border-0 border-dark overflow-hidden" style="background: rgb(245,245,250);">
+                            <div class="row g-0">
+                                <div class="col-md-6" style="border-color: rgb(245,245,250);width: 100%;">
+                                    <div class="text-white p-4 p-md-3" style="background: #02c167;backdrop-filter: opacity(1) brightness(100%);padding: 28px;padding-top: 28px;padding-right: 28px;padding-bottom: 28px;padding-left: 28px;">
+                                        <h5 class="display-4 fw-bolder text-white mb-4" style="font-weight: bold;font-size: 50px;color: #141414;font-family: 'Darker Grotesque', sans-serif;"><span style="color: rgb(20, 20, 20);">Welcome to Vacations4You - Your Gateway to Unforgettable Adventures!</span></h5>
+                                        <p class="fs-6 fw-normal mb-4" style="--bs-body-font-weight: normal;--bs-body-font-size: 0;font-family: Inter, sans-serif;font-size: 20px;color: #000000;">Ready for an exciting journey? Vacations4You is your perfect travel partner for local and international adventures.</p>
+                                        <div class="my-4" style="/*margin-top: 10px;*/"><input type="search" style="margin-right: 8px;height: 54px;width: 260px;padding-right: 2px;padding-left: 12px;border: 1px solid #000000;background: #eeeeee;border-radius: 6px;" placeholder="Cruise, Activity and Holiday ..."><button class="btn btn-primary d-inline-block" type="button" style="width: 138px;height: 54px;background: rgb(0,0,0);padding-top: 14px;font-family: Inter, sans-serif;margin: 8px;margin-left: 0px;font-size: 16px;color: rgb(255,255,255);border: 1px solid #000000;padding-bottom: 12px;border-top-style: solid;border-top-color: #000000;border-right-style: solid;border-right-color: #000000;border-bottom-style: solid;border-bottom-color: #000000;border-left-style: solid;border-left-color: #000000;border-radius: 6px;">Search</button></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+    
+    <section id="About" style="background: #f5f5fa;margin-top: -0;">
+        <div class="container py-4 py-xl-1" style="margin-top: -1px;padding-top: 0PX;">
+            <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3 d-flex d-xl-flex justify-content-xl-center align-items-xl-center" style="padding-top: 0px;margin-top: initial;width: 100%;font-size: 16px;margin-bottom: 0px;height: 260px;">
+                <div class="col-xl-4 d-xl-flex justify-content-xl-center align-items-xl-start" style="height: 300px;width: 430px;">
+                    <section style="height: 200px;">
+                        <div class="container" style="height: 200px;">
+                            <div class="photo-card" style="height: 200px;background: #ffffff;border-radius: 10px;">
+                                <div class="photo-background" style="height: 200px;width: 213px;border-radius: 11px 0px 0px 11px;border-top-left-radius: 10px;border-bottom-left-radius: 10px;"><img style="height: 200px;width: 200px;border-top-left-radius: 10px;border-bottom-left-radius: 10px;" src="assets/img/fernando-jorge-rMaWin9-9Gk-unsplash.jpg"></div>
+                                <div class="photo-details" style="border-radius: 0px;">
+                                    <h1 style="color: #000000;font-family: Poppins, sans-serif;">Cruise Gateways</h1>
+                                    <p style="height: 100px;font-family: Poppins, sans-serif;font-size: 14px;color: #000000;padding-top: 0px;margin-top: 12px;">Set sail on your cruise adventure!</p>
+                                    <div class="photo-tags">
+                                        <ul>
+                                            <li style="margin-top: -50px;"><a href="#">eXPLORE</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-xl-5 d-xl-flex justify-content-xl-center align-items-xl-start" style="height: 300px;width: 430px;">
+                    <section style="height: 200px;">
+                        <div class="container" style="height: 200px;">
+                            <div class="photo-card" style="height: 200px;background: #ffffff;">
+                                <div class="photo-background" style="height: 200px;width: 213px;"><img style="height: 200px;width: 200px;border-top-left-radius: 10px;border-bottom-left-radius: 10px;" src="assets/img/roxanne-desgagnes-Jc-XDKM6bZk-unsplash.jpg"></div>
+                                <div class="photo-details">
+                                    <h1 style="color: #000000;font-family: Poppins, sans-serif;">Adventure Awaits</h1>
+                                    <p style="height: 100px;font-size: 14px;color: rgb(0,0,0);">Discover thrilling activities!</p>
+                                    <div class="photo-tags">
+                                        <ul>
+                                            <li style="margin-top: -50px;"><a href="#">explore</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-xl-5 d-xl-flex justify-content-xl-center align-items-xl-start" style="height: 300px;width: 430px;">
+                    <section style="height: 200px;">
+                        <div class="container" style="height: 200px;">
+                            <div class="photo-card" style="height: 200px;background: #ffffff;">
+                                <div class="photo-background" style="height: 200px;width: 213px;"><img style="height: 200px;width: 200px;border-top-left-radius: 10px;border-bottom-left-radius: 10px;" src="assets/img/sara-dubler-Koei_7yYtIo-unsplash.jpg"></div>
+                                <div class="photo-details">
+                                    <h1 style="color: rgb(0,0,0);">Dream Gateways</h1>
+                                    <p style="height: 100px;color: #000000;font-size: 14px;">Tailor-Made holiday packages jus for you!</p>
+                                    <div class="photo-tags">
+                                        <ul>
+                                            <li style="margin-top: -50px;"><a href="#">explore</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="Projects" style="margin-bottom: 20px;">
+        <div class="container py-4 py-xl-1" style="padding-top: 28px;padding-bottom: 28px;">
+            <div class="row mb-5">
+                <div class="col-md-8 col-xl-12 text-center d-xl-flex mx-auto justify-content-xl-start">
+                    <h2 style="font-family: 'Darker Grotesque', sans-serif;font-size: 40px;font-weight: bold;">Popular Holiday Package Offers!</h2>
+                </div>
+            </div>
+            <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3" style="margin-top: -50px;">
+                <div class="col-xxl-3">
+                    <div class="card" style="border-radius: 18px;background: rgb(255, 255, 255);"><img class="card-img-top w-100 d-block fit-cover" style="height: 200px;" src="assets/img/reisetopia-3n7bxyRYQ24-unsplash.jpg">
+                        <div class="card-body p-4">
+                            <h4 class="card-title" style="font-family: Inter, sans-serif;"><span style="color: rgb(20, 20, 20);">Havelock Place&nbsp;Bungalow</span></h4>
+                            <div class="d-flex" style="height: 30px;">
+                                <p style="font-family: Poppins, sans-serif;color: #888888;">13 Kilometers Away</p>
+                            </div>
+                            <div class="d-flex" style="color: #212529;">
+                                <p style="color: #888888;font-size: 16px;font-family: Poppins, sans-serif;">Nov 08 - 11</p>
+                            </div>
+                            <div class="d-flex">
+                                <h1 style="font-size: 30px;font-family: Poppins, sans-serif;">$112</h1>
+                                <h1 class="d-xxl-flex align-items-xxl-end" style="font-size: 22px;margin-right: 0px;padding-right: 0px;padding-left: 8px;text-align: center;font-family: Poppins, sans-serif;color: #888888;">per night</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <app-popular-package class="col-xxl-3"></app-popular-package>
+            </div>
+        </div>
+    </section>
+</div>
+
+<app-service-list-section *ngIf="currentView === 'serviceListView'">
+
+</app-service-list-section>
+
+<app-service-booking-section *ngIf="currentView === 'serviceLserviceBookingViewistView'">
+
+</app-service-booking-section>
+
+<section style="background: #f5f5fa;">
+<app-footer-bar>
+
+</app-footer-bar>
+</section>
+
