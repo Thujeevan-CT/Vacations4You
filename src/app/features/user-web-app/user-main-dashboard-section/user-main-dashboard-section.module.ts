@@ -1,3 +1,4 @@
+import { AdminMainDashboardSectionComponent } from './../../admin-web-app/admin-main-dashboard-section/admin-main-dashboard-section.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -13,7 +14,7 @@ import { PopularPackageComponent } from '../components/popular-package/popular-p
 
 @NgModule({
   declarations: [UserMainDashboardSectionComponent, NavBarComponent, FooterBarComponent, ServiceListSectionComponent,
-  ServiceBookingSectionComponent, PopularPackageComponent],
+  ServiceBookingSectionComponent, PopularPackageComponent, AdminMainDashboardSectionComponent],
   imports: [
     CommonModule,
     UserMainDashboardSectionRoutingModule,
