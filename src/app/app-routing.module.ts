@@ -9,6 +9,14 @@ const routes: Routes = [
   {
     path: 'vacation4u-admin',
     loadChildren: () => import('./features/admin-web-app/admin-main-dashboard-section/admin-main-dashboard-section.module').then(m => m.AdminMainDashboardSectionModule)
+  },
+  {
+    path: 'vacation4u-login',
+    loadChildren: () => import('./features/user-login/user-login.module').then(m => m.UserLoginModule)
+  },
+  {
+    path: 'vacation4u-registration',
+    loadChildren: () =>  import('./features/user-registration/user-registration.module').then(m => m.UserRegistrationModule)
   }
 ];
 

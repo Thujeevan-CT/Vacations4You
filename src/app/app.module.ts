@@ -1,26 +1,21 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PopularPackageComponent } from './features/user-web-app/components/popular-package/popular-package.component';
-import { AdminMainDashboardSectionComponent } from './features/admin-web-app/admin-main-dashboard-section/admin-main-dashboard-section.component';
+import { UserRegistrationComponent } from './features/user-registration/user-registration.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent,
-   // AdminMainDashboardSectionComponent,
-  //  PopularPackageComponent,
-    //FooterBarComponent,
-   // NavBarComponent,
-   // ServiceListSectionComponent,
-  //  ServiceBookingSectionComponent,
-    // UserMainDashboardSectionComponent,
+    AppComponent
      
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
