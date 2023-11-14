@@ -1,29 +1,71 @@
 <div class="row">
-    <div class="col-md-12 mb-3">
-      <div class="card text-left">
-          <div class="card-body">
-              <h4 class="card-title mb-3">Cruise Reservations</h4>
-              <div class="table-responsive">
-                  <table class="table">
-                      <thead>
-                          <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Title</th>
-                            <th scope="col">Description</th>
-                            <th scope="col">Destination</th>
-                            <th scope="col">Duration</th>
-                            <th scope="col">No. of Travelers</th>
-                            <th scope="col">Description</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Specialty</th>
+  <div class="col-lg-3">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title mb-3">Add New Hotel Reservations</h4>
+        <form>
+          <div class="form-group">
+            <label class="col-form-label" for="recipient-name-3">Title:</label>
+            <input class="form-control" [(ngModel)]="newHolidayPackage.title" name="title" type="text" />
+          </div>
+          <div class="form-group">
+            <label class="col-form-label" for="recipient-name-3">Description:</label>
+            <textarea class="form-control" [(ngModel)]="newHolidayPackage.description" name="description"></textarea>
+          </div>
+          <div class="form-group">
+            <label class="col-form-label" for="recipient-name-3">Destination:</label>
+            <input class="form-control" [(ngModel)]="newHolidayPackage.destination" name="destination" type="text" />
+          </div>
+          <div class="form-group">
+            <label class="col-form-label" for="recipient-name-3">Duration:</label>
+            <input class="form-control" [(ngModel)]="newHolidayPackage.duration" name="duration" type="number" />
+          </div>
+          <div class="form-group">
+            <label class="col-form-label" for="recipient-name-3">Number of Travelers:</label>
+            <input class="form-control" [(ngModel)]="newHolidayPackage.no_of_travelers" name="no_of_travelers" type="number" />
+          </div>
+          <div class="form-group">
+            <label class="col-form-label" for="recipient-name-3">Price:</label>
+            <input class="form-control" [(ngModel)]="newHolidayPackage.price" name="price" type="number" />
+          </div>
+          <div class="form-group">
+            <label class="col-form-label" for="recipient-name-3">Specialty:</label>
+            <input class="form-control" [(ngModel)]="newHolidayPackage.specialty" name="specialty" type="text" />
+          </div>
+          <div class="form-group" style="text-align: right;">
+            <button class="btn btn-success" (click)="addNewHolidayPackage()">Add</button>
+            <button class="btn btn-warning" (click)="resetAddNewHolidayPackageForm()" style="margin-left: 5px;">Reset</button>
+          </div>
+        </form>
+      </div>
+    </div>
 
-                            <th scope="col">Status</th>
-                            <th scope="col">Actions</th>
-                          </tr>
-                      </thead>
+  </div>
+
+  <div class="col-lg-9">
+
+    <div class="row">
+
+      <div class="col-lg-12">
+        <div class="card text-left">
+          <div class="card-body">
+              <h4 class="card-title mb-3">Holiday Reservations</h4>
+              <div class="table-responsive">
+                  <table datatable class="row-border hover" *ngIf="allHolidayPackages.length">
+                    <thead>
+                      <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Destination</th>
+                        <th scope="col">Duration</th>
+                        <th scope="col">No. of Travelers</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Specialty</th>
+                        <th scope="col">Actions</th>
+                      </tr>
+                    </thead>
                       <tbody>
                         <tr *ngFor="let package of allHolidayPackages">
-                          <th scope="row">1</th>
                           <td>{{ package.title }}</td>
                           <td>{{ package.description }}</td>
                           <td>{{ package.destination }}</td>
@@ -32,7 +74,7 @@
                           <td>{{ package.price | currency }}</td>
                           <td>{{ package.specialty }}</td>
            
-                          <td><span class="badge badge-success">Active</span></td>
+
                           <td>
                           <button class="btn btn-warning btn-sm m-1" type="button" data-toggle="modal" (click)="viewHolidayPackage(package.id || '')" data-target="#HolidayReservationUpdate">
                               <i class="nav-icon i-Pen-2 font-weight-bold"></i>
@@ -49,13 +91,14 @@
               </div>
           </div>
       </div>
-  </div>
-    <div class="col-md-12 mb-3">
-      <div class="card text-left">
+      </div>
+
+      <div class="col-lg-12 mt-3">
+        <div class="card text-left">
           <div class="card-body">
               <h4 class="card-title mb-3">Cruise Reservations</h4>
               <div class="table-responsive">
-                  <table class="table">
+                  <table  class="row-border hover">
                       <thead>
                           <tr>
                               <th scope="col">#</th>
@@ -99,7 +142,21 @@
               </div>
           </div>
       </div>
+
+      </div>
+
+    </div>
+
   </div>
+</div>
+
+
+
+
+
+
+
+
   
     <div class="modal fade" id="HolidayReservationUpdate" tabindex="-1" role="dialog" aria-labelledby="verifyModalContent1"
       aria-hidden="true">
@@ -155,4 +212,3 @@
   
     <div class="row"></div>
 
-  </div>

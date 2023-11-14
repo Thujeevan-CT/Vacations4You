@@ -8,15 +8,18 @@ import { StaffMainDashboardSectionComponent } from './staff-main-dashboard-secti
 import { CruiseReservationSectionComponent } from '../components/cruise-reservation-section/cruise-reservation-section.component';
 import { FormsModule } from '@angular/forms';
 import { HolidayReservationSectionComponent } from '../components/holiday-reservation-section/holiday-reservation-section.component';
+import { ActivityReservationSectionComponent } from '../components/activity-reservation-section/activity-reservation-section.component';
+import { DataTablesModule } from 'angular-datatables';
 
 
 @NgModule({
   declarations: [StaffMainDashboardSectionComponent, NavBarSectionComponent, DashboardInsightsSectionComponent,
-  CruiseReservationSectionComponent, HolidayReservationSectionComponent],
+  CruiseReservationSectionComponent, HolidayReservationSectionComponent, ActivityReservationSectionComponent],
   imports: [
     CommonModule,
     StaffMainDashboardSectionRoutingModule,
-    FormsModule
+    FormsModule,
+    DataTablesModule
   ]
 })
 export class StaffMainDashboardSectionModule { }

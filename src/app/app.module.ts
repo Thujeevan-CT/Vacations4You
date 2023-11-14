@@ -10,11 +10,13 @@ import { CruiseReservationSectionComponent } from './features/staff-web-app/comp
 import { NavBarSectionComponent } from './features/staff-web-app/components/nav-bar-section/nav-bar-section.component';
 import { DashboardInsightsSectionComponent } from './features/staff-web-app/components/dashboard-insights-section/dashboard-insights-section.component';
 import { HolidayReservationSectionComponent } from './features/staff-web-app/components/holiday-reservation-section/holiday-reservation-section.component';
+import { ActivityReservationSectionComponent } from './features/staff-web-app/components/activity-reservation-section/activity-reservation-section.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+  //  ActivityReservationSectionComponent,
  //   HolidayReservationSectionComponent,
     // StaffMainDashboardSectionComponent,
     // CruiseReservationSectionComponent,

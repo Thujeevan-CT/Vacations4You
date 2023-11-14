@@ -17,6 +17,7 @@ export class CruiseReservationSectionComponent implements OnInit{
 
   public allCruisePackages : Array<CruisePackage>  =  [];
   public cruisePackage = {} as CruisePackage;
+  public newCruisePackage = {} as CruisePackage;
 
   constructor(private _APIBaseService : BaseService, private _router : Router, private datePipe: DatePipe){
     
@@ -98,7 +99,7 @@ export class CruiseReservationSectionComponent implements OnInit{
             if(data.code === 200){
               Swal.fire({
                 icon: 'success',
-                title: 'Order Deleted Successfully!'
+                title: data.message
               });
               this._getAllCruisePackageData();
             } else {
@@ -120,4 +121,64 @@ export class CruiseReservationSectionComponent implements OnInit{
     })
   }
 
+
+  addNewCruisePackage(){
+    if(this.isAnyPropertyNull(this.newCruisePackage)){
+      Swal.fire({
+        icon: 'warning',
+        title: 'Please complete all the required fields!'
+      });
+      return;
+    }
+
+    this._APIBaseService.post<any>('cruise/new', this.newCruisePackage).subscribe((data:Response)=> {
+      switch(data.code){
+        case 200 :
+          Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: data.message
+          });
+         this._getAllCruisePackageData();
+      }
+
+    }, (error:any) => {
+      if(error.error.code === 422){
+        Swal.fire({
+          icon: 'error',
+          title: 'Error ',
+          html: error.error.message.map((element:string) => `<span>${element}</span>`).join('<br>') || error.error.message
+        });
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error ',
+          text: 'Something went wrong!'
+        });
+      }
+    });
+  }
+
+  resetAddNewCruisePackageForm(){
+    this.newCruisePackage = {
+      title: '',
+      departure_destination: '',
+      arrival_destination: '',
+      departure_date: 0,
+      arrival_date: 0,
+      cabin_class: '',
+      cruise_duration: 0,
+      cruise_provider: '',
+      price: 0,
+    };
+  }
+
+   isAnyPropertyNull(obj: any): boolean {
+    for (const key in obj) {
+      if (obj.hasOwnProperty(key) && (obj[key] === null || obj[key] === 0)) {
+        return true;
+      }
+    }
+    return false;
+  }
 }

@@ -16,6 +16,7 @@ export class HolidayReservationSectionComponent implements OnInit{
 
   public allHolidayPackages: Array<HolidayPackage> = [];
   public holidayPackage = {} as HolidayPackage;
+  public newHolidayPackage = {} as HolidayPackage;
 
   constructor(private _APIBaseService : BaseService, private _router : Router){
     
@@ -38,7 +39,7 @@ export class HolidayReservationSectionComponent implements OnInit{
   }
 
   private _getAllHolidayPackageData(){
-    this._APIBaseService.get<any>('holiday').subscribe((data:Response)=> {
+    this._APIBaseService.get<any>('package').subscribe((data:Response)=> {
       switch(data.code){
         case 200 :
           this.allHolidayPackages = data.data;
@@ -51,7 +52,7 @@ export class HolidayReservationSectionComponent implements OnInit{
 
   viewHolidayPackage(id:string){
     // this.cruisePackage.id = undefined;
-    this._APIBaseService.get<any>('holiday/'+`${id}`).subscribe((data:Response)=> {
+    this._APIBaseService.get<any>('package/'+`${id}`).subscribe((data:Response)=> {
       switch(data.code){
         case 200 :
           this.holidayPackage = data.data;
@@ -65,7 +66,7 @@ export class HolidayReservationSectionComponent implements OnInit{
 
   updateCruisePackage(id:string){
     this.holidayPackage.id = undefined;
-    this._APIBaseService.put<any>('holiday/update/'+`${id}`, this.holidayPackage).subscribe((data:Response)=> {
+    this._APIBaseService.put<any>('package/update/'+`${id}`, this.holidayPackage).subscribe((data:Response)=> {
       switch(data.code){
         case 200 :
           this._getAllHolidayPackageData();
@@ -93,12 +94,12 @@ export class HolidayReservationSectionComponent implements OnInit{
       confirmButtonText: 'Yes'
     }).then((result) => {
       if (result.isConfirmed) {
-        this._APIBaseService.delete<any>('holiday/delete/'+`${id}`).subscribe(
+        this._APIBaseService.delete<any>('package/delete/'+`${id}`).subscribe(
           (data:Response) => {
             if(data.code === 200){
               Swal.fire({
                 icon: 'success',
-                title: 'Package Deleted Successfully!'
+                title: data.message
               });
               this._getAllHolidayPackageData();
             } else {
@@ -119,5 +120,67 @@ export class HolidayReservationSectionComponent implements OnInit{
       }
     })
   }
+
+  addNewHolidayPackage(){
+    if(this.isAnyPropertyNull(this.newHolidayPackage)){
+      Swal.fire({
+        icon: 'warning',
+        title: 'Please complete all the required fields!'
+      });
+      return;
+    }
+
+    this._APIBaseService.post<any>('package/new', this.newHolidayPackage).subscribe((data:Response)=> {
+      switch(data.code){
+        case 200 :
+          Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: data.message
+          });
+         this._getAllHolidayPackageData();
+      }
+
+    }, (error:any) => {
+      if(error.error.code === 422){
+        Swal.fire({
+          icon: 'error',
+          title: 'Error ',
+          html: Array.isArray(error.error.message)
+            ? error.error.message.map((element: string) => `<span>${element}</span>`).join('<br>')
+            : error.error.message,
+        });
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error ',
+          text: 'Something went wrong!'
+        });
+      }
+    });
+  }
+
+  resetAddNewHolidayPackageForm() {
+    this.newHolidayPackage = {
+      title: '',
+      description: '',
+      destination: '',
+      duration: 0,
+      no_of_travelers: 0,
+      price: 0,
+      specialty: '',
+    };
+  }
+
+
+  isAnyPropertyNull(obj: any): boolean {
+    for (const key in obj) {
+      if (obj.hasOwnProperty(key) && (obj[key] === null || obj[key] === 0)) {
+        return true;
+      }
+    }
+    return false;
+  }
+  
 
 }
