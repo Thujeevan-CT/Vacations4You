@@ -10,16 +10,18 @@ import { FormsModule } from '@angular/forms';
 import { HolidayReservationSectionComponent } from '../components/holiday-reservation-section/holiday-reservation-section.component';
 import { ActivityReservationSectionComponent } from '../components/activity-reservation-section/activity-reservation-section.component';
 import { DataTablesModule } from 'angular-datatables';
-
-
+import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
+import { AdminSectionComponent } from '../components/admin-section/admin-section.component';
 @NgModule({
   declarations: [StaffMainDashboardSectionComponent, NavBarSectionComponent, DashboardInsightsSectionComponent,
-  CruiseReservationSectionComponent, HolidayReservationSectionComponent, ActivityReservationSectionComponent],
+  CruiseReservationSectionComponent, HolidayReservationSectionComponent, ActivityReservationSectionComponent,
+AdminSectionComponent],
   imports: [
     CommonModule,
     StaffMainDashboardSectionRoutingModule,
     FormsModule,
-    DataTablesModule
+    DataTablesModule,
+    CanvasJSAngularChartsModule
   ]
 })
 export class StaffMainDashboardSectionModule { }

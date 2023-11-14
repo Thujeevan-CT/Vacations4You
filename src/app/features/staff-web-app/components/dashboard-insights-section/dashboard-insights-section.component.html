@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-lg-4 col-md-6 col-sm-6">
         <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4">
-            <div class="card-body text-center"><i class="i-Add-User"></i>
+            <div class="card-body text-center"><i class="i-Ship"></i>
                 <div class="content">
                     <p class="text-muted mt-2 mb-0">Cruise Reservations</p>
                     <p class="text-primary text-24 line-height-1 mb-2">205</p>
@@ -11,20 +11,20 @@
     </div>
     <div class="col-lg-4 col-md-6 col-sm-6">
         <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4">
-            <div class="card-body text-center"><i class="i-Financial"></i>
+            <div class="card-body text-center"><i class="i-Bicycle"></i>
                 <div class="content">
                     <p class="text-muted mt-2 mb-0">Activity Reservations</p>
-                    <p class="text-primary text-24 line-height-1 mb-2">$4021</p>
+                    <p class="text-primary text-24 line-height-1 mb-2">4021</p>
                 </div>
             </div>
         </div>
     </div>
     <div class="col-lg-4 col-md-6 col-sm-6">
         <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4">
-            <div class="card-body text-center"><i class="i-Money-2"></i>
+            <div class="card-body text-center"><i class="i-Hotel"></i>
                 <div class="content">
                     <p class="text-muted mt-2 mb-0">Holiday Package Reservations</p>
-                    <p class="text-primary text-24 line-height-1 mb-2">$1200</p>
+                    <p class="text-primary text-24 line-height-1 mb-2">1200</p>
                 </div>
             </div>
         </div>
@@ -35,15 +35,19 @@
         <div class="card mb-4">
             <div class="card-body">
                 <div class="card-title">This Year Sales</div>
-                <div id="echartBar" style="height: 300px;"></div>
+                <div>
+                    <canvasjs-chart [options]="chartOptions" [styles]="{width: '100%', height:'360px'}"></canvasjs-chart>    
+                </div>   
             </div>
         </div>
     </div>
     <div class="col-lg-4 col-sm-12">
         <div class="card mb-4">
             <div class="card-body">
-                <div class="card-title">Sales by Countries</div>
-                <div id="echartPie" style="height: 300px;"></div>
+                <div class="card-title">Sales by Categories</div>
+                <div>
+                    <canvasjs-chart [options]="chartOptions2" [styles]="{width: '100%', height:'360px'}"></canvasjs-chart>    
+                </div>     
             </div>
         </div>
     </div>

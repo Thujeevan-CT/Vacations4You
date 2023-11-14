@@ -17,5 +17,9 @@ export const ViewsConfig = {
     activityPackageView : {
         id: '04',
         name : 'activityPackage'
+    },
+    adminView :{
+        id: '05',
+        name : 'adminView'
     }
 }

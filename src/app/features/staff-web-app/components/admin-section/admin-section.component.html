@@ -1,0 +1,53 @@
+<div class="row">
+    <div class="col-lg-4">
+        <div class="card o-hidden">
+            <div class="p-4">
+                <h4 class="mb-4 text-14 text-center">Adding New Travel Agent</h4>
+                <form>
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input class="form-control " name="firstName" [(ngModel)]="userRegisrationDetails.first_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input class="form-control " name="lastName" [(ngModel)]="userRegisrationDetails.last_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <input class="form-control " name="email" [(ngModel)]="userRegisrationDetails.email" type="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmEmail">Confirm Email</label>
+                        <input class="form-control " name="confirmEmail" [(ngModel)]="userRegisrationDetails.confirm_email" type="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input class="form-control" name="password" [(ngModel)]="userRegisrationDetails.password" type="password">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input class="form-control " name="confirmPassword" [(ngModel)]="userRegisrationDetails.confirm_password" type="password">
+                    </div>
+                    <button class="btn  btn-primary btn-block mt-4" (click)="registerUser()">Register Now</button>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+    <div class="col-lg-4">
+        <div class="card o-hidden">
+            <div class="p-4">
+                <h4 class="mb-4 text-14 text-center">Forget Password?</h4>
+                <form>
+                    <div class="form-group">
+                        <label for="firstName">Enter the Email Address</label>
+                        <input class="form-control " name="firstName" [(ngModel)]="userRegisrationDetails.first_name">
+                    </div>
+                  
+                    <button class="btn  btn-primary btn-block mt-4" (click)="registerUser()">Send Reset Password</button>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+</div>

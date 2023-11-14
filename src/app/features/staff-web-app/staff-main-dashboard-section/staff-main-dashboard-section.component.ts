@@ -12,5 +12,10 @@ export class StaffMainDashboardSectionComponent {
   changeRequestedView(viewId:string){
 
     this.currentView = viewId;
+
+
+
   }
+
+  
 }

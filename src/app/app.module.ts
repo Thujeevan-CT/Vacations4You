@@ -11,11 +11,13 @@ import { NavBarSectionComponent } from './features/staff-web-app/components/nav-
 import { DashboardInsightsSectionComponent } from './features/staff-web-app/components/dashboard-insights-section/dashboard-insights-section.component';
 import { HolidayReservationSectionComponent } from './features/staff-web-app/components/holiday-reservation-section/holiday-reservation-section.component';
 import { ActivityReservationSectionComponent } from './features/staff-web-app/components/activity-reservation-section/activity-reservation-section.component';
+import { AdminSectionComponent } from './features/staff-web-app/components/admin-section/admin-section.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    
   //  ActivityReservationSectionComponent,
  //   HolidayReservationSectionComponent,
     // StaffMainDashboardSectionComponent,
