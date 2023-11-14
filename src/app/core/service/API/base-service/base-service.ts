@@ -13,7 +13,11 @@ export class BaseService {
   constructor(private http: HttpClient) { }
 
   private getHeaders(): HttpHeaders {
-    return new HttpHeaders();
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${this._environment.accessToken}`
+    });
+    return headers;
   }
 
   get<T>(endpoint: string): Observable<T> {

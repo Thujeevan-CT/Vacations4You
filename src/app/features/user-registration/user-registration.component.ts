@@ -20,7 +20,7 @@ export class UserRegistrationComponent {
   }
 
   registerUser(){
-    this.userRegisrationDetails.role = 'staff';
+    this.userRegisrationDetails.role = 'agent';
     this._APIBaseService.post<any>('auth/register',this.userRegisrationDetails).subscribe((data:Response)=> {
       switch (data.code){
         case 200 :

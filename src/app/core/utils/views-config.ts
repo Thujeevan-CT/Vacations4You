@@ -5,13 +5,17 @@ export const ViewsConfig = {
        id: '01',
        name : 'mainView'
     },
-    serviceListView : {
+    holidayPackageView : {
         id : '02',
-        name : 'serviceListView'
+        name : 'holidayPackage'
     },
-    serviceBookingView :
+    cruisePackageView :
     {
         id : '03',
-        name : 'serviceBookingView'
+        name : 'cruisePackage'
+    },
+    activityPackageView : {
+        id: '04',
+        name : 'activityPackage'
     }
 }

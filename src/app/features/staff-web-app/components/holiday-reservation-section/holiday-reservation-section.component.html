@@ -1,0 +1,158 @@
+<div class="row">
+    <div class="col-md-12 mb-3">
+      <div class="card text-left">
+          <div class="card-body">
+              <h4 class="card-title mb-3">Cruise Reservations</h4>
+              <div class="table-responsive">
+                  <table class="table">
+                      <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Destination</th>
+                            <th scope="col">Duration</th>
+                            <th scope="col">No. of Travelers</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Specialty</th>
+
+                            <th scope="col">Status</th>
+                            <th scope="col">Actions</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let package of allHolidayPackages">
+                          <th scope="row">1</th>
+                          <td>{{ package.title }}</td>
+                          <td>{{ package.description }}</td>
+                          <td>{{ package.destination }}</td>
+                          <td>{{ package.duration }}</td>
+                          <td>{{ package.no_of_travelers}}</td>
+                          <td>{{ package.price | currency }}</td>
+                          <td>{{ package.specialty }}</td>
+           
+                          <td><span class="badge badge-success">Active</span></td>
+                          <td>
+                          <button class="btn btn-warning btn-sm m-1" type="button" data-toggle="modal" (click)="viewHolidayPackage(package.id || '')" data-target="#HolidayReservationUpdate">
+                              <i class="nav-icon i-Pen-2 font-weight-bold"></i>
+                          </button>
+                          <button   class="btn btn-danger btn-sm m-1" type="button" data-toggle="modal" (click)="deleteHolidayPackage(package.id || '')">
+                            <i class="nav-icon i-Close-Window font-weight-bold"></i>
+                          </button>
+                              <a class="text-danger mr-2" href="#"></a>
+                          </td>
+                      </tr>
+                  
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+  </div>
+    <div class="col-md-12 mb-3">
+      <div class="card text-left">
+          <div class="card-body">
+              <h4 class="card-title mb-3">Cruise Reservations</h4>
+              <div class="table-responsive">
+                  <table class="table">
+                      <thead>
+                          <tr>
+                              <th scope="col">#</th>
+                              <th scope="col">Departure</th>
+                              <th scope="col">Arrival</th>
+                              <th scope="col">Departure Date</th>
+                              <th scope="col">Arrival Date</th>
+                              <th scope="col">Deck and Cabin Class</th>
+                              <th scope="col">Price</th>
+                              <th scope="col">Duration of the Cruise</th>
+                              <th scope="col">Cruise Provider</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <th scope="row">1</th>
+                              <td>Smith Doe</td>
+                              <td><img class="rounded-circle m-0 avatar-sm-table" src="../../dist-assets/images/faces/1.jpg" alt="" /></td>
+                              <td>Smith@gmail.com</td>
+                              <td><span class="badge badge-success">Active</span></td>
+                              <td><a class="text-success mr-2" href="#"><i class="nav-icon i-Pen-2 font-weight-bold"></i></a><a class="text-danger mr-2" href="#"><i class="nav-icon i-Close-Window font-weight-bold"></i></a></td>
+                          </tr>
+                          <tr>
+                              <th scope="row">2</th>
+                              <td>Jhon Doe</td>
+                              <td><img class="rounded-circle m-0 avatar-sm-table" src="../../dist-assets/images/faces/1.jpg" alt="" /></td>
+                              <td>Jhon@gmail.com</td>
+                              <td><span class="badge badge-info">Pending</span></td>
+                              <td><a class="text-success mr-2" href="#"><i class="nav-icon i-Pen-2 font-weight-bold"></i></a><a class="text-danger mr-2" href="#"><i class="nav-icon i-Close-Window font-weight-bold"></i></a></td>
+                          </tr>
+                          <tr>
+                              <th scope="row">3</th>
+                              <td>Alex</td>
+                              <td><img class="rounded-circle m-0 avatar-sm-table" src="../../dist-assets/images/faces/1.jpg" alt="" /></td>
+                              <td>Otto@gmail.com</td>
+                              <td><span class="badge badge-warning">Not Active</span></td>
+                              <td><a class="text-success mr-2" href="#"><i class="nav-icon i-Pen-2 font-weight-bold"></i></a><a class="text-danger mr-2" href="#"><i class="nav-icon i-Close-Window font-weight-bold"></i></a></td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+    <div class="modal fade" id="HolidayReservationUpdate" tabindex="-1" role="dialog" aria-labelledby="verifyModalContent1"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="verifyModalContent1_title">New cruise reservation</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span
+                aria-hidden="true">×</span></button>
+          </div>
+          <div class="modal-body">
+            <form>
+                <div class="form-group">
+                  <label class="col-form-label" for="recipient-name-3">Title:</label>
+                  <input class="form-control" [(ngModel)]="holidayPackage.title" name="title" type="text" />
+                </div>
+                <div class="form-group">
+                  <label class="col-form-label" for="recipient-name-3">Description:</label>
+                  <textarea class="form-control" [(ngModel)]="holidayPackage.description" name="description"></textarea>
+                </div>
+                <div class="form-group">
+                  <label class="col-form-label" for="recipient-name-3">Destination:</label>
+                  <input class="form-control" [(ngModel)]="holidayPackage.destination" name="destination" type="text" />
+                </div>
+                <div class="form-group">
+                  <label class="col-form-label" for="recipient-name-3">Duration:</label>
+                  <input class="form-control" [(ngModel)]="holidayPackage.duration" name="duration" type="number" />
+                </div>
+                <div class="form-group">
+                  <label class="col-form-label" for="recipient-name-3">Number of Travelers:</label>
+                  <input class="form-control" [(ngModel)]="holidayPackage.no_of_travelers" name="no_of_travelers" type="number" />
+                </div>
+                <div class="form-group">
+                  <label class="col-form-label" for="recipient-name-3">Price:</label>
+                  <input class="form-control" [(ngModel)]="holidayPackage.price" name="price" type="number" />
+                </div>
+                <div class="form-group">
+                  <label class="col-form-label" for="recipient-name-3">Specialty:</label>
+                  <input class="form-control" [(ngModel)]="holidayPackage.specialty" name="specialty" type="text" />
+                </div>
+              </form>
+              
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
+            <button class="btn btn-warning" (click)="updateCruisePackage(holidayPackage.id || '')" type="button">Update Now</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  
+  
+    <div class="row"></div>
+
+  </div>

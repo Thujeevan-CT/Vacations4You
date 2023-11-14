@@ -39,36 +39,36 @@ export class UserLoginComponent {
           this._userDetails =  data.data.user;
           Environment.accessToken = data.data.token;
           if (this._userDetails.role === 'staff') {
-            this._router.navigate(['/vacation4u-staff'], { queryParams: this._userDetails});
+            this._router.navigate(['/vacation4u-user'], { queryParams: this._userDetails});
           } else if (this._userDetails.role === 'agent'){
             this._router.navigate(['/vacation4u-user'], { queryParams: this._userDetails});
           }
           break;
 
           case 400 : 
-          console.log(data.message);
+          Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: data.message
+          });
           break;
-
-          case 401 : 
-          console.log(data.message);
-          break;
-
-          case 500 : 
-          console.log(data.message);
           
         }
       },
-      (error: unknown) => {
-        // if(error.error.responseCode === '2000'){
-        //   Swal.fire({
-        //     icon: 'error',
-        //     title: 'Oops...',
-        //     text: 'Invalid Username or Password!',
-            
-        //   })
-        // }
-       
-        // this.sweetAlertService.showAlert('error','Application Error. Please Try Again Later!', 'error', 'Oops!', 'Retry');
+      (error: any) => {
+        if(error.error.code === 422){
+          Swal.fire({
+            icon: 'error',
+            title: 'Error ',
+            html: error.error.message.map((element:string) => `<span>${element}</span>`).join('<br>')
+          });
+        } else {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error ',
+            text: error.error.message
+          });
+        }
       }
     );
   }
