@@ -12,11 +12,15 @@ import { DashboardInsightsSectionComponent } from './features/staff-web-app/comp
 import { HolidayReservationSectionComponent } from './features/staff-web-app/components/holiday-reservation-section/holiday-reservation-section.component';
 import { ActivityReservationSectionComponent } from './features/staff-web-app/components/activity-reservation-section/activity-reservation-section.component';
 import { AdminSectionComponent } from './features/staff-web-app/components/admin-section/admin-section.component';
+import { AgentMainDashboardComponent } from './features/agent-web-app/agent-main-dashboard/agent-main-dashboard.component';
+import { CruiseBookingSectionComponent } from './features/agent-web-app/components/cruise-booking-section/cruise-booking-section.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+
+
     
   //  ActivityReservationSectionComponent,
  //   HolidayReservationSectionComponent,

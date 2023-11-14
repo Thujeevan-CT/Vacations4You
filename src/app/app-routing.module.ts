@@ -8,7 +8,10 @@ const routes: Routes = [
     loadChildren: () => import('./features/staff-web-app/staff-main-dashboard-section/staff-main-dashboard-section.module').then(m => m.StaffMainDashboardSectionModule)
   },
 
-
+  {
+    path: 'vacation4u-agent',
+    loadChildren: () =>  import('./features/agent-web-app/agent-main-dashboard/agent-main-dashboard.module').then(m => m.AgentMainDashboardModule)
+  },
   {
     path: 'vacation4u-login',
     loadChildren: () => import('./features/user-login/user-login.module').then(m => m.UserLoginModule)
