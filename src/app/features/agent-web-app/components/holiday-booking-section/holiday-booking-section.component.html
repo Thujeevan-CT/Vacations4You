@@ -1,0 +1,125 @@
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="card-title mb-3">Search Your Dream Gateway</div>
+                <form>
+                    <div class="row">
+                      <div class="col-md-2 form-group mb-3">
+                        <label for="exampleInputEmail1">Destination</label>
+                        <input class="form-control" [(ngModel)]="searchHolidayReservationBooking.destination" name="destination" type="text" placeholder="Enter destination" />
+                      </div>
+                      <div class="col-md-2 form-group mb-3">
+                        <label for="exampleInputEmail1">Duration</label>
+                        <input class="form-control" [(ngModel)]="searchHolidayReservationBooking.duration" name="duration" type="number" placeholder="Enter duration" />
+                      </div>
+                      <div class="col-md-2 form-group mb-3">
+                        <label for="picker1">No. of Travelers</label>
+                        <input class="form-control" [(ngModel)]="searchHolidayReservationBooking.no_of_travelers" name="no_of_travelers" type="number" placeholder="Enter no. of travelers" />
+                      </div>
+                      <div class="col-md-2 form-group mb-3">
+                        <label for="picker1">Specialty</label>
+                        <input class="form-control" [(ngModel)]="searchHolidayReservationBooking.specialty" name="specialty" type="text" placeholder="Enter specialty" />
+                      </div>
+                      <div class="col-md-2 form-group mb-3 align-self-end">
+                        <button class="btn btn-success btn-block" (click)="searchHolidayPackageDetails()">Search</button>
+                      </div>
+                    </div>
+                  </form>
+                  
+                  
+                
+                
+            </div>
+        </div>
+    </div>
+    <!-- <div class="col-md-12">
+        <div class="card mb-4">
+            <div class="card-body">
+                <iframe allowfullscreen frameborder="0" src="https://cdn.bootstrapstudio.io/placeholders/map.html" width="100%" height="200">
+                </iframe>
+                </div>
+        </div>
+    </div> -->
+
+    <div class="col-md-3">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="card-title mb-3">Filters</div>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-4 form-group mb-3">
+                                    <label for="firstName1">Price</label>
+                                    <input class="form-control" [(ngModel)]="searchHolidayReservationBooking.price" name="rating" type="number"/>
+                                </div>
+
+                        
+                                <div class="col-md-4 form-group mb-3 mt-4">
+                                    <button class="btn btn-primary" style="width: 100%;" (click)="applyHolidayPackageDetailsFilter()">Apply</button>
+                                </div>
+                                
+                            </div>
+                        </form>
+                        
+                    </div>
+                </div>
+    </div>
+    <div class="col-md-9 col-sm-12">
+        <!-- <div class="card card-ecommerce-3 o-hidden mb-4" *ngFor="let package of allHolidayPackages">
+            <div class="d-flex flex-column flex-sm-row">
+                <div><img class="card-img-left" src="../../../../assets/dist-assets/images/photo-wide-1.jpg" alt=""></div>
+                <div class="flex-grow-1 p-4">
+                    <h5 class="m-0">{{package.activity_type}}</h5>
+                    <p class="m-0 text-small text-muted">By ABC Cafe</p>
+                    <p class="m-0">{{package.price | currency}}
+                    </p>
+                    <p class="text-muted mt-3">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Nesciunt placeat esse tempore debitis.
+                    </p>
+                    <div class="actions">
+                        <button class="btn btn-warning"  data-toggle="modal" (click)="openNewHolidayBookingModel(package)"  data-target="#HolidayBookingModel"><i class="icon i-Add-Cart"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+    
+</div>
+
+
+
+<div class="modal fade" id="HolidayBookingModel" tabindex="-1" role="dialog" aria-labelledby="verifyModalContent1"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="verifyModalContent1_title">New Booking</h5>
+      <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span
+          aria-hidden="true">×</span></button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <!-- <div class="form-group">
+            <label for="picker1">Meal Preference</label>
+            <select class="form-control" [(ngModel)]="newHolidayReservationBooking.no_of_participants" name="no_of_participants">
+              <option [value]="'1st Class'">Vegeterian</option>
+              <option [value]="'2nd Class'">Non-Vegeterian</option>
+            </select>
+        </div> -->
+
+      </form>
+    </div>
+    <div class="modal-footer">
+      <!-- <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button> -->
+      <button class="btn btn-warning" (click)="addNewHolidayBooking(selectedHolidayReservation.id || '')" type="button">Book Now</button>
+    </div>
+  </div>
+</div>
+<!-- end of col-->
+<!-- travel-different-countries-->
+
+<!-- latest-log-->
+</div>
+

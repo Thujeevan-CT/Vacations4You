@@ -7,33 +7,34 @@
                     <div class="row">
                         <div class="col-md-2 form-group mb-3">
                             <label for="firstName1">Departure Destination</label>
-                            <input class="form-control" id="firstName1" type="text" placeholder="Enter your departure destination" />
+                            <input class="form-control" [(ngModel)]="searchCruiseReservationBooking.departure_destination" name="departure_destination" type="text" placeholder="Enter your departure destination" />
                         </div>
                         <div class="col-md-2 form-group mb-3">
                             <label for="lastName1">Arrival Destination</label>
-                            <input class="form-control" id="lastName1" type="text" placeholder="Enter your arrival destination" />
+                            <input class="form-control" [(ngModel)]="searchCruiseReservationBooking.arrival_destination" name="arrival_destination" type="text" placeholder="Enter your arrival destination" />
                         </div>
                         <div class="col-md-2 form-group mb-3">
                             <label for="exampleInputEmail1">Departure Date</label>
-                            <input class="form-control" id="exampleInputEmail1" type="date" />
+                            <input class="form-control" [(ngModel)]="searchCruiseReservationBooking.departure_date" name="departure_date" type="date" />
                         </div>
                         <div class="col-md-2 form-group mb-3">
                             <label for="exampleInputEmail1">Arrival Date</label>
-                            <input class="form-control" id="exampleInputEmail1" type="date"/>
+                            <input class="form-control" [(ngModel)]="searchCruiseReservationBooking.arrival_date" name="arrival_date" type="date"/>
                         </div>
-                        <div class="col-md-2 form-group mb-3">
+                        <div class="form-group col-md-2 ">
                             <label for="picker1">Select Cabin Class</label>
-                            <select class="form-control">
-                                <option>Upper cabin Deck</option>
-                                <option>Upper Middle Deck</option>
-                                <option>Lower Cabin Deck</option>
+                            <select class="form-control" [(ngModel)]="searchCruiseReservationBooking.cabin_class" name="cabin_class">
+                                <option [value]="'1st Class'">1st Class</option>
+                                <option [value]="'2nd Class'">2nd Class</option>
+                                <option [value]="'3rd Class'">3rd Class</option>
                             </select>
                         </div>
                         <div class="col-md-2 form-group mb-3 align-self-end">
-                            <button class="btn btn-success btn-block" >Search</button>
+                            <button class="btn btn-success btn-block" (click)="searchCruisePackageDetails()">Search</button>
                         </div>
                     </div>
                 </form>
+                
                 
             </div>
         </div>
@@ -55,33 +56,92 @@
                             <div class="row">
                                 <div class="col-md-4 form-group mb-3">
                                     <label for="firstName1">Min</label>
-                                    <input class="form-control" id="firstName1" type="number"/>
+                                    <input class="form-control" [(ngModel)]="searchCruiseReservationBooking.min_price" name="min_price" type="number"/>
                                 </div>
                                 <div class="col-md-4 form-group mb-3">
                                     <label for="lastName1">Max</label>
-                                    <input class="form-control" id="lastName1" type="number"/>
+                                    <input class="form-control" [(ngModel)]="searchCruiseReservationBooking.max_price" name="max_price" type="number"/>
                                 </div>
-
+                        
                                 <div class="col-md-4 form-group mb-3 mt-4">
-                                    <button class="btn btn-primary">Apply</button>
+                                    <button class="btn btn-primary" style="width: 100%;" (click)="applyCruisePackageDetailsFilter()">Apply</button>
                                 </div>
                                 
                                 <div class="col-md-12 form-group mb-3">
                                     <label for="phone">Cruise Duration</label>
-                                    <input class="form-control" id="phone" placeholder="Enter duration" />
+                                    <input class="form-control" [(ngModel)]="searchCruiseReservationBooking.cruise_duration" name="cruise_duration" placeholder="Enter duration" />
                                 </div>
-
+                        
                                 <div class="col-md-12 form-group mb-3">
                                     <label for="phone">Cruise Provider</label>
-                                    <input class="form-control" id="phone" placeholder="Enter provider" />
+                                    <input class="form-control" [(ngModel)]="searchCruiseReservationBooking.cruise_provider" name="cruise_provider" placeholder="Enter provider" />
                                 </div>
-                         
                             </div>
                         </form>
+                        
                     </div>
                 </div>
     </div>
-    <div class="col-md-9 col-sm-12">
+    <div class="col-md-9">
+        <!-- Card 1 -->
+        <div class="card card-ecommerce-3 o-hidden mb-4">
+            <div class="d-flex flex-column flex-sm-row">
+                <div class="mb-3 mb-sm-0">
+                    <img class="card-img-left" src="../../../../../assets/img/pexels-matthew-barra-813011.jpg" alt="" />
+                </div>
+                <div class="flex-grow-1 p-4">
+                    <h5 class="m-0 mb-2 font-weight-bold" style="font-size: 30px;">7 nights</h5>
+                    <h5 class="m-0 mb-12" style="font-size: 22px;">South Pacific Cruise</h5>
+                    <p class="m-0 mt-2 text-small text-muted">Destination From: Brisbane, Australia </p>
+                    <p class="m-0 mb-12 mb-2 text-small text-muted">Destination To: Port Vila, Australia </p>
+                    <p class="m-0 mt-4" style="font-size: 24px;">$1200</p>
+                    <div class="actions mt-3">
+                        <button class="btn btn-sm btn-icon btn-outline-primary">Book</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Card 2 -->
+        <div class="card card-ecommerce-3 o-hidden mb-4">
+            <div class="d-flex flex-column flex-sm-row">
+                <div class="mb-3 mb-sm-0">
+                    <img class="card-img-left" src="../../../../../assets/img/pexels-maurício-mascaro-775294.jpg" alt="" />
+                </div>
+                <div class="flex-grow-1 p-4">
+                    <h5 class="m-0 mb-2 font-weight-bold" style="font-size: 30px;">5 nights</h5>
+                    <h5 class="m-0 mb-12" style="font-size: 22px;">Cultural Odyssey Cruise</h5>
+                    <p class="m-0 mt-2 text-small text-muted">Destination From: Trincomalee, Sri Lanka </p>
+                    <p class="m-0 mb-12 mb-2 text-small text-muted">Destination To: Jaffna, Sri Lanka </p>
+                    <p class="m-0 mt-4" style="font-size: 24px;">$1500</p>
+                    <div class="actions mt-3">
+                        <button class="btn btn-sm btn-icon btn-outline-primary" >Book</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Card 3 -->
+        <div class="card card-ecommerce-3 o-hidden mb-4">
+            <div class="d-flex flex-column flex-sm-row">
+                <div class="mb-3 mb-sm-0">
+                    <img class="card-img-left" src="../../../../../assets/img/pexels-star-913112.jpg" alt="" />
+                </div>
+                <div class="flex-grow-1 p-4">
+                    <h5 class="m-0 mb-2 font-weight-bold" style="font-size: 30px;">6 nights</h5>
+                    <h5 class="m-0 mb-12" style="font-size: 22px;">Island Serenity Cruise</h5>
+                    <p class="m-0 mt-2 text-small text-muted">Destination From: Negombo, Sri Lanka </p>
+                    <p class="m-0 mb-12 mb-2 text-small text-muted">Destination To: Hambantota, Sri Lanka </p>
+                    <p class="m-0 mt-4" style="font-size: 24px;">$1800</p>
+                    <div class="actions mt-3">
+                        <button class="btn btn-sm btn-icon btn-outline-primary" data-toggle="modal"  data-target="#cruiseBookingModel">Book</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- <div class="col-md-9 col-sm-12">
         <div class="card card-ecommerce-3 o-hidden mb-4" *ngFor="let package of allCruisePackages">
             <div class="d-flex flex-column flex-sm-row">
                 <div><img class="card-img-left" src="../../../../assets/dist-assets/images/photo-wide-1.jpg" alt=""></div>
@@ -95,11 +155,54 @@
                         elit. Nesciunt placeat esse tempore debitis.
                     </p>
                     <div class="actions">
-                        <button class="btn btn-warning"><i class="icon i-Add-Cart"></i></button>
+                        <button class="btn btn-warning"  data-toggle="modal" (click)="openNewCruiseBookingModel(package)"  data-target="#cruiseBookingModel"><i class="icon i-Add-Cart"></i></button>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     
+</div>
+
+
+
+<div class="modal fade" id="cruiseBookingModel" tabindex="-1" role="dialog" aria-labelledby="verifyModalContent1"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="verifyModalContent1_title">New Cruise Booking</h5>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+      <div class="modal-body">
+        <p class="font-weight-bold">Complete the form below to make a new cruise booking.</p>
+        <form>
+          <div class="form-group">
+            <label for="picker1">Meal Preference</label>
+            <select class="form-control" [(ngModel)]="newCruiseReservationBooking.meal_preference" name="meal_preference">
+              <option [value]="'1st Class'">Vegetarian</option>
+              <option [value]="'2nd Class'">Non-Vegetarian</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="picker1">Cabin Class</label>
+            <select class="form-control" [(ngModel)]="newCruiseReservationBooking.cabin_selection" name="cabin_selection">
+              <option [value]="'1st Class'">1st Class</option>
+              <option [value]="'2nd Class'">2nd Class</option>
+              <option [value]="'3rd Class'">3rd Class</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <!-- <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button> -->
+        <button class="btn btn-warning" (click)="addNewCruiseBooking(selectedCruiseReservation.id || '')" type="button">Book
+          Now</button>
+      </div>
+    </div>
+  </div>
+  <!-- end of col-->
+  <!-- travel-different-countries-->
+
+  <!-- latest-log-->
 </div>

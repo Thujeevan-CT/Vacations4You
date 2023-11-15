@@ -170,6 +170,7 @@ export class CruiseReservationSectionComponent implements OnInit{
       cruise_duration: 0,
       cruise_provider: '',
       price: 0,
+      description:''
     };
   }
 

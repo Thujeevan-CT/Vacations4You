@@ -12,6 +12,7 @@ import { ActivityReservationSectionComponent } from '../components/activity-rese
 import { DataTablesModule } from 'angular-datatables';
 import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
 import { AdminSectionComponent } from '../components/admin-section/admin-section.component';
+import { HolidayBookingSectionComponent } from '../../agent-web-app/components/holiday-booking-section/holiday-booking-section.component';
 @NgModule({
   declarations: [StaffMainDashboardSectionComponent, NavBarSectionComponent, DashboardInsightsSectionComponent,
   CruiseReservationSectionComponent, HolidayReservationSectionComponent, ActivityReservationSectionComponent,

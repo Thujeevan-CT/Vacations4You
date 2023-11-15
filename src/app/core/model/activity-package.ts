@@ -5,4 +5,6 @@ export interface ActivityPackage {
     date: number; 
     age_restriction: number;
     price: number;
+    rating?:number;
+    description:string;
   }

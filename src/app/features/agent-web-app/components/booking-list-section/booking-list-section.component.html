@@ -1,0 +1,292 @@
+<div class="breadcrumb">
+    <h1>My Bookings</h1>
+</div>
+<div class="separator-breadcrumb border-top"></div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="card-title mb-3">All Bookings</div>
+                <form>
+                    <div class="row">
+                        <div class="col-md-12 form-group mb-3">
+                            <label for="picker1">Select your preffernce</label>
+                            <select class="form-control">
+                                <option>Cruise Reservation</option>
+                                <option>Acitivity Reservation</option>
+                                <option>Holiday Reservation</option>
+                            </select>
+                        </div>
+                        <div class="col-md-12">
+                            <button class="btn btn-primary">Apply</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12">
+    <div class="card o-hidden mb-4">
+      <div class="card-header d-flex align-items-center">
+        <h3 class="w-50 float-left card-title m-0">Cruise Bookings</h3>
+        
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <div
+            id="user_table_wrapper"
+            class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer"
+          >
+            <div class="row">
+              <div class="col-sm-12 col-md-6">
+                <div class="dataTables_length" id="user_table_length">
+                  <label
+                    >Show
+                    <select
+                      name="user_table_length"
+                      aria-controls="user_table"
+                      class="form-control form-control-sm"
+                    >
+                      <option value="10">10</option>
+                      <option value="25">25</option>
+                      <option value="50">50</option>
+                      <option value="100">100</option>
+                    </select>
+                    entries</label
+                  >
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <div id="user_table_filter" class="dataTables_filter">
+                  <label
+                    >Search:<input
+                      type="search"
+                      class="form-control form-control-sm"
+                      placeholder=""
+                      aria-controls="user_table"
+                  /></label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <table
+                  class="table dataTable-collapse text-center dataTable no-footer"
+                  id="user_table"
+                  role="grid"
+                  aria-describedby="user_table_info"
+                >
+                  <thead>
+                    <tr role="row">
+                      <th
+                        scope="col"
+                        class="sorting_asc"
+                        tabindex="0"
+                        aria-controls="user_table"
+                        rowspan="1"
+                        colspan="1"
+                        aria-sort="ascending"
+                        aria-label="#: activate to sort column descending"
+                        style="width: 21.6719px"
+                      >
+                        #
+                      </th>
+                      <th
+                        scope="col"
+                        class="sorting"
+                        tabindex="0"
+                        aria-controls="user_table"
+                        rowspan="1"
+                        colspan="1"
+                        aria-label="Name: activate to sort column ascending"
+                        style="width: 89.469px"
+                      >
+                      Customer Name 
+                      </th>
+                      <th
+                        scope="col"
+                        class="sorting"
+                        tabindex="0"
+                        aria-controls="user_table"
+                        rowspan="1"
+                        colspan="1"
+                        aria-label="Name: activate to sort column ascending"
+                        style="width: 89.469px"
+                      >
+                      Email 
+                      </th>
+                      <th
+                      scope="col"
+                      class="sorting"
+                      tabindex="0"
+                      aria-controls="user_table"
+                      rowspan="1"
+                      colspan="1"
+                      aria-label="Name: activate to sort column ascending"
+                      style="width: 89.469px"
+                    >
+                    Contact Number 
+                    </th>
+                      <th
+                        scope="col"
+                        class="sorting"
+                        tabindex="0"
+                        aria-controls="user_table"
+                        rowspan="1"
+                        colspan="1"
+                        aria-label="Name: activate to sort column ascending"
+                        style="width: 89.469px"
+                      >
+                        Departure Destitation
+                      </th>
+                      <th
+                        scope="col"
+                        class="sorting"
+                        tabindex="0"
+                        aria-controls="user_table"
+                        rowspan="1"
+                        colspan="1"
+                        aria-label="Avatar: activate to sort column ascending"
+                        style="width: 70.1016px"
+                      >
+                        Arrival Destitation
+                      </th>
+                      <th
+                        scope="col"
+                        class="sorting"
+                        tabindex="0"
+                        aria-controls="user_table"
+                        rowspan="1"
+                        colspan="1"
+                        aria-label="Email: activate to sort column ascending"
+                        style="width: 167.406px"
+                      >
+                        Departure Date
+                      </th>
+                      <th
+                        scope="col"
+                        class="sorting"
+                        tabindex="0"
+                        aria-controls="user_table"
+                        rowspan="1"
+                        colspan="1"
+                        aria-label="Status: activate to sort column ascending"
+                        style="width: 92.07px"
+                      >
+                        Arrival Date
+                      </th>
+                      <th
+                        scope="col"
+                        class="sorting"
+                        tabindex="0"
+                        aria-controls="user_table"
+                        rowspan="1"
+                        colspan="1"
+                        aria-label="Action: activate to sort column ascending"
+                        style="width: 70.7812px"
+                      >
+                      Cabin Class
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr role="row" class="odd">
+                      <th scope="row" class="sorting_1">1</th>
+                      <td>Saranga Gamage</td>
+                      <td>sarangagamage@gmail.com</td>
+                      <td>+94769977654</td>                               
+                      <td>Galle</td>
+                      <td>Sigiriya</td>
+                      <td>23/11/2023</td>
+                      <td>23/11/2023</td>
+                      <td>2ND class</td>
+                    </tr>
+                    <tr role="row" class="odd">
+                      <th scope="row" class="sorting_1">1</th>
+                      <td>Saranga Gamage</td>
+                      <td>sarangagamage@gmail.com</td>
+                      <td>+94769977654</td>                               
+                      <td>Galle</td>
+                      <td>Sigiriya</td>
+                      <td>23/11/2023</td>
+                      <td>23/11/2023</td>
+                      <td>2ND class</td>
+                    </tr>
+                    <tr role="row" class="odd">
+                      <th scope="row" class="sorting_1">1</th>
+                      <td>Saranga Gamage</td>
+                      <td>sarangagamage@gmail.com</td>
+                      <td>+94769977654</td>                               
+                      <td>Galle</td>
+                      <td>Sigiriya</td>
+                      <td>23/11/2023</td>
+                      <td>23/11/2023</td>
+                      <td>2ND class</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 col-md-5">
+                <div
+                  class="dataTables_info"
+                  id="user_table_info"
+                  role="status"
+                  aria-live="polite"
+                >
+                  Showing 1 to 3 of 3 entries
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-7">
+                <div
+                  class="dataTables_paginate paging_simple_numbers"
+                  id="user_table_paginate"
+                >
+                  <ul class="pagination">
+                    <li
+                      class="paginate_button page-item previous disabled"
+                      id="user_table_previous"
+                    >
+                      <a
+                        href="#"
+                        aria-controls="user_table"
+                        data-dt-idx="0"
+                        tabindex="0"
+                        class="page-link"
+                        >Previous</a
+                      >
+                    </li>
+                    <li class="paginate_button page-item active">
+                      <a
+                        href="#"
+                        aria-controls="user_table"
+                        data-dt-idx="1"
+                        tabindex="0"
+                        class="page-link"
+                        >1</a
+                      >
+                    </li>
+                    <li
+                      class="paginate_button page-item next disabled"
+                      id="user_table_next"
+                    >
+                      <a
+                        href="#"
+                        aria-controls="user_table"
+                        data-dt-idx="2"
+                        tabindex="0"
+                        class="page-link"
+                        >Next</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

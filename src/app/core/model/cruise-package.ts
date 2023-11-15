@@ -9,4 +9,7 @@ export interface CruisePackage {
     cruise_duration: number,
     cruise_provider: string,
     price: number,
+    min_price?:number,
+    max_price?:number,
+    description:string,
 }

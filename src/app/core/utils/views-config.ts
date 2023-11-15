@@ -1,5 +1,3 @@
-
-
 export const ViewsConfig = {
     mainView : {
        id: '01',
@@ -21,5 +19,17 @@ export const ViewsConfig = {
     adminView :{
         id: '05',
         name : 'adminView'
+    },
+    holidayBookingView : {
+        id : '06',
+        name : 'holidayBooking'
+    },
+    cruiseBookingView : {
+        id : '07',
+        name : 'cruiseBooking'
+    },
+    activityBookingView : {
+        id : '08',
+        name : 'activityBoking'
     }
 }

@@ -14,11 +14,17 @@ import { ActivityReservationSectionComponent } from './features/staff-web-app/co
 import { AdminSectionComponent } from './features/staff-web-app/components/admin-section/admin-section.component';
 import { AgentMainDashboardComponent } from './features/agent-web-app/agent-main-dashboard/agent-main-dashboard.component';
 import { CruiseBookingSectionComponent } from './features/agent-web-app/components/cruise-booking-section/cruise-booking-section.component';
+import { ActivityBookingSectionComponent } from './features/agent-web-app/components/activity-booking-section/activity-booking-section.component';
+import { HolidayBookingSectionComponent } from './features/agent-web-app/components/holiday-booking-section/holiday-booking-section.component';
+import { HomeSectionComponent } from './features/agent-web-app/components/home-section/home-section.component';
+import { BookingListSectionComponent } from './features/agent-web-app/components/booking-list-section/booking-list-section.component';
+
 
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
+
 
 
     

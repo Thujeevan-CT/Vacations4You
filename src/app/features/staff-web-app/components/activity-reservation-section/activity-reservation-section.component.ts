@@ -155,6 +155,7 @@ export class ActivityReservationSectionComponent {
       date: 0,
       age_restriction: 0,
       price: 0,
+      description: ''
     };
   }
   

@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AgentMainDashboardComponent {
   
+  public currentView:string  = '00';
+
+  changeRequestedView(viewId:string){
+
+    this.currentView = viewId;
+
+
+
+  }
 }

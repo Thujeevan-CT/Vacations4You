@@ -8,11 +8,9 @@
             <div></div>
             <div></div>
         </div>
-        <div class="icon-navigation">
-            <a href="#" style="padding: 30px;"><i class="i-Ship"></i> Cruise Reservation</a>
-            <a href="#" style="padding: 30px;"><i class="i-Train"></i> Activity Reservation</a>
-            <a href="#" style="padding: 30px;"><i class="i-Hotel"></i> Holiday Reservation</a>
-        </div>
+        <app-nav-bar-section (requestingView)="changeRequestedView($event)">
+
+        </app-nav-bar-section>
         <div class="d-flex align-items-center">
             <!-- Mega menu -->
             <!-- / Mega menu -->
@@ -30,13 +28,12 @@
             <!-- User avatar dropdown -->
             <div class="dropdown">
                 <div class="user col align-self-end">
-                    <img src="../../dist-assets/images/faces/1.jpg" id="userDropdown" alt="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="../../../../assets/dist-assets/images/faces/5.jpg" id="userDropdown" alt="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                         <div class="dropdown-header">
                             <i class="i-Lock-User mr-1"></i> Timothy Carlson
                         </div>
-                        <a class="dropdown-item">Account settings</a>
-                        <a class="dropdown-item">Billing history</a>
+                        <a class="dropdown-item" (click)="changeRequestedView('09')">My Bookings</a>
                         <a class="dropdown-item" href="signin.html">Sign out</a>
                     </div>
                 </div>
@@ -47,9 +44,22 @@
     <div class="main-content-wrap d-flex flex-column">
         <!-- ============ Body content start ============= -->
         <div class="main-content">
-          <app-cruise-booking-section>
-            
+          <app-cruise-booking-section *ngIf="currentView === '07'">
+
           </app-cruise-booking-section>
+          <app-activity-booking-section *ngIf="currentView === '08'">
+
+          </app-activity-booking-section>
+          <app-holiday-booking-section *ngIf="currentView === '06'">
+
+          </app-holiday-booking-section>
+          <app-home-section *ngIf="currentView === '00'">
+            
+          </app-home-section>
+
+          <app-booking-list-section *ngIf="currentView === '09'">
+
+          </app-booking-list-section>
             </div><!-- end of main-content -->
         </div><!-- Footer Start -->
         <div class="flex-grow-1"></div>
