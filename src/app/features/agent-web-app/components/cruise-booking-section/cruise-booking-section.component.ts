@@ -4,7 +4,6 @@ import { CruisePackage } from 'src/app/core/model/cruise-package';
 import { CruisePackageBooking } from 'src/app/core/model/cruise-package-booking';
 import { Response } from 'src/app/core/model/response';
 import { BaseService } from 'src/app/core/service/API/base-service/base-service';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-cruise-booking-section',
@@ -39,18 +38,10 @@ export class CruiseBookingSectionComponent implements OnInit{
     this._APIBaseService.get<any>('cruise' + queryParams).subscribe((data: Response) => {
       switch (data.code) {
         case 200:
-          Swal.fire({
-            icon: 'success',
-            title: 'Success',
-            text: data.message
-          });
+          this.allCruisePackages = data.data;
       }
     }, (error: any) => {
-     Swal.fire({
-            icon: 'warning',
-            title: 'Ooops!',
-            text: error.message
-          });
+
     });
   }
 

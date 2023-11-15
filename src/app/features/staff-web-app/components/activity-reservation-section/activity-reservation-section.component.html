@@ -53,7 +53,7 @@
                 <table datatable class="row-border hover"  *ngIf="allActivityPackages.length">
                     <thead>
                         <tr>
-                          <th scope="col">#</th>
+
                           <th scope="col">Activity Type</th>
                           <th scope="col">Destination</th>
                           <th scope="col">Date</th>
@@ -65,7 +65,7 @@
                     </thead>
                     <tbody>
                       <tr *ngFor="let package of allActivityPackages">
-                        <th scope="row">1</th>
+   
                         <td>{{ package.activity_type }}</td>
                         <td>{{ package.destination }}</td>
                         <td>{{ package.date | date: 'yyyy-MM-dd' }}</td>
@@ -94,47 +94,49 @@
         <div class="card-body">
             <h4 class="card-title mb-3">Activity Bookings</h4>
             <div class="table-responsive">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Departure</th>
-                            <th scope="col">Arrival</th>
-                            <th scope="col">Departure Date</th>
-                            <th scope="col">Arrival Date</th>
-                            <th scope="col">Deck and Cabin Class</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Duration of the Cruise</th>
-                            <th scope="col">Cruise Provider</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Smith Doe</td>
-                            <td><img class="rounded-circle m-0 avatar-sm-table" src="../../dist-assets/images/faces/1.jpg" alt="" /></td>
-                            <td>Smith@gmail.com</td>
-                            <td><span class="badge badge-success">Active</span></td>
-                            <td><a class="text-success mr-2" href="#"><i class="nav-icon i-Pen-2 font-weight-bold"></i></a><a class="text-danger mr-2" href="#"><i class="nav-icon i-Close-Window font-weight-bold"></i></a></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jhon Doe</td>
-                            <td><img class="rounded-circle m-0 avatar-sm-table" src="../../dist-assets/images/faces/1.jpg" alt="" /></td>
-                            <td>Jhon@gmail.com</td>
-                            <td><span class="badge badge-info">Pending</span></td>
-                            <td><a class="text-success mr-2" href="#"><i class="nav-icon i-Pen-2 font-weight-bold"></i></a><a class="text-danger mr-2" href="#"><i class="nav-icon i-Close-Window font-weight-bold"></i></a></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Alex</td>
-                            <td><img class="rounded-circle m-0 avatar-sm-table" src="../../dist-assets/images/faces/1.jpg" alt="" /></td>
-                            <td>Otto@gmail.com</td>
-                            <td><span class="badge badge-warning">Not Active</span></td>
-                            <td><a class="text-success mr-2" href="#"><i class="nav-icon i-Pen-2 font-weight-bold"></i></a><a class="text-danger mr-2" href="#"><i class="nav-icon i-Close-Window font-weight-bold"></i></a></td>
-                        </tr>
-                    </tbody>
-                </table>
+              <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Activity Type</th>
+                        <th scope="col">Destination</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Age Restriction</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">No of Participants</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Wildlife Safari</td>
+                        <td>Yala National Park</td>
+                        <td>2023-12-01</td>
+                        <td>8+</td>
+                        <td>$5000</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Cultural Tour</td>
+                        <td>Kandy</td>
+                        <td>2023-12-10</td>
+                        <td>12+</td>
+                        <td>$3000</td>
+                        <td>15</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Beach Relaxation</td>
+                        <td>Unawatuna</td>
+                        <td>2023-12-20</td>
+                        <td>18+</td>
+                        <td>$2000</td>
+                        <td>8</td>
+                    </tr>
+                </tbody>
+            </table>
+            
             </div>
         </div>
     </div>
@@ -153,7 +155,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="verifyModalContent1_title">New cruise reservation</h5>
+            <h5 class="modal-title" id="verifyModalContent1_title">Update activity reservation</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span
                 aria-hidden="true">×</span></button>
           </div>
@@ -183,6 +185,7 @@
           </div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
+
             <button class="btn btn-warning" (click)="updateActivityPackage(activityPackage.id || '')" type="button">Update Now</button>
           </div>
         </div>

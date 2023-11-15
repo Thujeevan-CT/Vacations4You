@@ -47,7 +47,14 @@ export class ActivityBookingSectionComponent {
 
 
   addNewActivityBooking(id:string){
+    this._APIBaseService.post<any>('booking', this.newActivityReservationBooking).subscribe((data: Response) => {
+      switch (data.code) {
+        case 200:
+          this.allActivityPackages = data.data;
+      }
+    }, (error: any) => {
 
+    });
   }
 
   openNewActivityBookingModel(criusePackage:ActivityPackage){

@@ -40,7 +40,6 @@ export class ActivityReservationSectionComponent {
    }
  
    viewActivityPackage(id:string){
-     // this.cruisePackage.id = undefined;
      this._APIBaseService.get<any>('activity/'+`${id}`).subscribe((data:Response)=> {
        switch(data.code){
          case 200 :
@@ -55,7 +54,7 @@ export class ActivityReservationSectionComponent {
  
    updateActivityPackage(id:string){
      this.activityPackage.id = undefined;
-     this._APIBaseService.put<any>('activty/update/'+`${id}`, this.activityPackage).subscribe((data:Response)=> {
+     this._APIBaseService.put<any>('activity/update/'+`${id}`, this.activityPackage).subscribe((data:Response)=> {
        switch(data.code){
          case 200 :
            this._getAllActivtyPackageData();
