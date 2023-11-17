@@ -89,117 +89,90 @@
         </div> -->
     
     
-    <div class="col-md-9 col-sm-12">
-      <div class="card card-ecommerce-3 o-hidden mb-4">
+    <div class="col-md-12 col-sm-12">
+      <div class="card card-ecommerce-3 o-hidden mb-4" *ngFor="let package of allActivityPackages">
           <div class="d-flex flex-column flex-sm-row">
               <div><img class="card-img-left" src="https://thema-collection.imgix.net/2022/10/Yala-National-Park-ElephentsSLTPB.jpg?w=475&h=515&fit=crop&crop=center&auto=format,enhance&q=25" alt=""></div>
               <div class="flex-grow-1 p-4">
-                  <h5 class="m-0">Safari to Yala National Park</h5>
-                  <p class="m-0 text-small text-muted">$2000</p>
+                  <h5 class="m-0"> {{package.activity_type}}</h5>
+                  <p class="m-0 text-small text-muted">{{package.price | currency }}</p>
                   <p class="m-0">
                   </p>
                   <p class="text-muted mt-3">
-                      The Yala National Park is situated bordering the ocean in the southeastern corner of the island.
+                     {{package.description}}
                   </p>
                   <div class="actions">
-                      <button class="btn btn-warning"  data-toggle="modal" ><i class="icon i-Add-Cart"></i></button>
+                    <button class="btn btn-sm btn-icon btn-outline-primary" data-toggle="modal" data-target="#ActivityBookingModel" (click)="openNewActivityBookingModel(package)" >Book</button>
                   </div>
               </div>
           </div>
       </div>
     </div>
-    <div class="col-md-9 col-sm-12">
-      <div class="card card-ecommerce-3 o-hidden mb-4">
-          <div class="d-flex flex-column flex-sm-row">
-              <div><img class="card-img-left" src="https://thema-collection.imgix.net/2022/10/G0040347-2.jpg?w=475&h=515&fit=crop&crop=center&auto=format,enhance&q=25" alt=""></div>
-              <div class="flex-grow-1 p-4">
-                  <h5 class="m-0">Discover the Passikudah Reef</h5>
-                  <p class="m-0 text-small text-muted">$2500</p>
-                  <p class="m-0">
-                  </p>
-                  <p class="text-muted mt-3">
-                    Discover the underwater treasures of the Passikudah Reef by Snorkelling on a glass bottom boat.
-                  </p>
-                  <div class="actions">
-                      <button class="btn btn-warning"  data-toggle="modal" ><i class="icon i-Add-Cart"></i></button>
-                  </div>
-              </div>
-          </div>
-      </div>
-    </div>
-    <div class="col-md-9 col-sm-12">
-      <div class="card card-ecommerce-3 o-hidden mb-4">
-          <div class="d-flex flex-column flex-sm-row">
-              <div><img class="card-img-left" src="https://thema-collection.imgix.net/2022/10/High-Knuckles-Trek-Dinesh7.webp?w=475&h=515&fit=crop&crop=center&auto=format,enhance&q=25" alt=""></div>
-              <div class="flex-grow-1 p-4">
-                  <h5 class="m-0">High Knuckles Trek</h5>
-                  <p class="m-0 text-small text-muted">$800</p>
-                  <p class="m-0">
-                  </p>
-                  <p class="text-muted mt-3">
-                   traverse tea plantations and forests to summit the highest point of the knuckles range.
-                  </p>
-                  <div class="actions">
-                      <button class="btn btn-warning"  data-toggle="modal" ><i class="icon i-Add-Cart"></i></button>
-                  </div>
-              </div>
-          </div>
-      </div>
-    </div>
-    <div class="col-md-9 col-sm-12">
-      <div class="card card-ecommerce-3 o-hidden mb-4">
-          <div class="d-flex flex-column flex-sm-row">
-              <div><img class="card-img-left" src="https://thema-collection.imgix.net/2022/10/MahakudugalaPHOTO-2022-09-13-17-23-22-4.jpg?w=475&h=515&fit=crop&crop=center&auto=format,enhance&q=25" alt=""></div>
-              <div class="flex-grow-1 p-4">
-                  <h5 class="m-0">Hidden Trek to Mahakudugala</h5>
-                  <p class="m-0 text-small text-muted">$700</p>
-                  <p class="m-0">
-                  </p>
-                  <p class="text-muted mt-3">
-                    At an elevation of 2111 Meters, Mahakudugala is one of Sri Lanka’s best-kept hidden trails.
-                  </p>
-                  <div class="actions">
-                      <button class="btn btn-warning"  data-toggle="modal" ><i class="icon i-Add-Cart"></i></button>
-                  </div>
-              </div>
-          </div>
-      </div>
-    </div>
-
   </div>
 </div>
-
 
 
 <div class="modal fade" id="ActivityBookingModel" tabindex="-1" role="dialog" aria-labelledby="verifyModalContent1"
-aria-hidden="true">
-<div class="modal-dialog" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="verifyModalContent1_title">New Booking</h5>
-      <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span
-          aria-hidden="true">×</span></button>
-    </div>
-    <div class="modal-body">
-      <form>
-        <div class="form-group">
-            <label for="picker1">Meal Preference</label>
-            <select class="form-control" [(ngModel)]="newActivityReservationBooking.no_of_participants" name="no_of_participants">
-              <option [value]="'1st Class'">Vegeterian</option>
-              <option [value]="'2nd Class'">Non-Vegeterian</option>
-            </select>
-        </div>
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="verifyModalContent1_title">New Booking for {{selectedActivityReservation.activity_type}}</h5>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <p class="font-weight-bold">Complete the form below to make a new activity booking.</p>
 
-      </form>
-    </div>
-    <div class="modal-footer">
-      <!-- <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button> -->
-      <button class="btn btn-warning" (click)="addNewActivityBooking(selectedActivityReservation.id || '')" type="button">Book Now</button>
+          <div class="form-group">
+            <label>Activity Type:</label>
+            <span>&nbsp;{{selectedActivityReservation.activity_type}}</span>
+          </div>
+          <div class="form-group">
+            <label>Destination:</label>
+            <span>&nbsp;{{selectedActivityReservation.destination}}</span>
+          </div>
+          <div class="form-group">
+            <label>Date:</label>
+            <span>&nbsp;{{selectedActivityReservation.date}}</span>
+          </div>
+          <div class="form-group">
+            <label>Age Restriction:</label>
+            <span>&nbsp;{{selectedActivityReservation.age_restriction}}</span>
+          </div>
+          <div class="form-group">
+            <label>Price:</label>
+            <span>&nbsp;{{selectedActivityReservation.price | currency }}</span>
+          </div>
+          <div class="form-group">
+            <label>Description:</label>
+            <span>&nbsp;{{selectedActivityReservation.description}}</span>
+          </div>
+
+          <div class="form-group">
+            <label for="participantCount">Number of Participants</label>
+            <input type="number" class="form-control" [(ngModel)]="participantCount" (ngModelChange)="addNoOfParticipants(participantCount)" name="no_of_participants" placeholder="Enter number of participants">
+          </div>
+
+          <div class="form-group row" *ngFor="let participant of activityParticipants; let i = index">
+            <div class="col-lg-6">
+              <label for="participantName">Name</label>
+              <input type="text" class="form-control" [(ngModel)]="participant.name" name="participantName" placeholder="Enter name">
+            </div>
+            <div class="col-lg-6">
+              <label for="participantAge">Age</label>
+              <input type="number" class="form-control" [(ngModel)]="participant.age" name="participantAge" placeholder="Enter age">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" (click)="addNewActivityBooking(selectedActivityReservation.id || '')" type="button">Book Now</button>
+      </div>
     </div>
   </div>
 </div>
-<!-- end of col-->
-<!-- travel-different-countries-->
 
-<!-- latest-log-->
-</div>
+

@@ -5,6 +5,8 @@ import { Response } from 'src/app/core/model/response';
 import { BaseService } from 'src/app/core/service/API/base-service/base-service';
 import Swal from 'sweetalert2';
 import { DatePipe } from '@angular/common';
+import { Environment } from 'src/app/core/environment/environment';
+import { ActivityPackageBooking } from 'src/app/core/model/activity-package-booking';
 
 @Component({
   selector: 'app-activity-reservation-section',
@@ -17,10 +19,11 @@ export class ActivityReservationSectionComponent {
   public allActivityPackages: Array<ActivityPackage> = [];
   public activityPackage = {} as ActivityPackage;
   public newActivityPackage = {} as ActivityPackage;
+  public activityBookingList: Array<ActivityPackageBooking> = [];
 
   ngOnInit(): void {
     this._getAllActivtyPackageData();
-    
+    this.getAllBookingData();
    }
    constructor(private _APIBaseService : BaseService, private _router : Router, private datePipe: DatePipe){
     
@@ -157,6 +160,21 @@ export class ActivityReservationSectionComponent {
       description: ''
     };
   }
+
+  getAllBookingData(){
+    let queryParams = this.convertObjectToUrlParams({product_type : 'activity', user_id : Environment.userid.id});
+    queryParams = '?' + `${queryParams}`
+    this._APIBaseService.get<any>('book' + queryParams).subscribe((data: Response) => {
+      switch (data.code) {
+        case 200:
+         this.activityBookingList = data.data;
+          
+      }
+    }, (error: any) => {
+
+    });
+  }
+
   
 
   isAnyPropertyNull(obj: any): boolean {
@@ -166,5 +184,19 @@ export class ActivityReservationSectionComponent {
       }
     }
     return false;
+  }
+
+
+  private convertObjectToUrlParams(obj: any): string {
+    const params: string[] = [];
+    for (const key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        const value = obj[key];
+        if (value !== undefined && value !== null) {
+          params.push(`${encodeURIComponent(key)}=${encodeURIComponent(value)}`);
+        }
+      }
+    }
+    return params.join('&');
   }
 }

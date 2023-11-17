@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Environment } from 'src/app/core/environment/environment';
 import { CruisePackage } from 'src/app/core/model/cruise-package';
 import { CruisePackageBooking } from 'src/app/core/model/cruise-package-booking';
 import { Response } from 'src/app/core/model/response';
 import { BaseService } from 'src/app/core/service/API/base-service/base-service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-cruise-booking-section',
@@ -16,6 +18,7 @@ export class CruiseBookingSectionComponent implements OnInit{
   public newCruiseReservationBooking = {} as CruisePackageBooking;
   public searchCruiseReservationBooking = {} as CruisePackage;
   public selectedCruiseReservation = {} as CruisePackage;
+  public openCruiseReservation = {} as CruisePackage;
   constructor(private _APIBaseService : BaseService, private _router : Router){
     
   }
@@ -46,14 +49,25 @@ export class CruiseBookingSectionComponent implements OnInit{
   }
 
 
-  addNewCruiseBooking(id:string){
-    this._APIBaseService.post<any>('booking', this.newCruiseReservationBooking).subscribe((data: Response) => {
+  addNewCruiseBooking(){
+    this.newCruiseReservationBooking.product_id = this.openCruiseReservation.id || '';
+    this.newCruiseReservationBooking.user_id = Environment.userid.id;
+    this.newCruiseReservationBooking.product_type = 'cruise';
+    this._APIBaseService.post<any>('book', this.newCruiseReservationBooking).subscribe((data: Response) => {
       switch (data.code) {
         case 200:
-          this.allCruisePackages = data.data;
+          Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: data.message
+          });
       }
     }, (error: any) => {
-
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops!',
+            text: error.error.message
+          });
     });
   }
 
@@ -72,6 +86,11 @@ export class CruiseBookingSectionComponent implements OnInit{
       }
     }
     return params.join('&');
+  }
+
+
+  openNewCruiseBooking(packageSelected:CruisePackage){
+    this.openCruiseReservation = packageSelected;
   }
 
 }

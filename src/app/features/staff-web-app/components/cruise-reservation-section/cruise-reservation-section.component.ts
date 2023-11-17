@@ -5,6 +5,8 @@ import { Response } from 'src/app/core/model/response';
 import { BaseService } from 'src/app/core/service/API/base-service/base-service';
 import { DatePipe } from '@angular/common';
 import Swal from 'sweetalert2';
+import { Environment } from 'src/app/core/environment/environment';
+import { CruisePackageBooking } from 'src/app/core/model/cruise-package-booking';
 
 @Component({
   selector: 'app-cruise-reservation-section',
@@ -18,6 +20,7 @@ export class CruiseReservationSectionComponent implements OnInit{
   public allCruisePackages : Array<CruisePackage>  =  [];
   public cruisePackage = {} as CruisePackage;
   public newCruisePackage = {} as CruisePackage;
+  public cruiseBookingList: Array<CruisePackageBooking> = [];
 
   constructor(private _APIBaseService : BaseService, private _router : Router, private datePipe: DatePipe){
     
@@ -35,6 +38,7 @@ export class CruiseReservationSectionComponent implements OnInit{
   }
   ngOnInit(): void {
    this._getAllCruisePackageData();
+   this._getAllBookingData();
    
   }
 
@@ -181,5 +185,34 @@ export class CruiseReservationSectionComponent implements OnInit{
       }
     }
     return false;
+  }
+
+
+  private _getAllBookingData(){
+    let queryParams = this.convertObjectToUrlParams({product_type : 'cruise', user_id : Environment.userid.id});
+    queryParams = '?' + `${queryParams}`
+    this._APIBaseService.get<any>('book' + queryParams).subscribe((data: Response) => {
+      switch (data.code) {
+        case 200:
+         this.cruiseBookingList = data.data;
+          
+      }
+    }, (error: any) => {
+
+    });
+  }
+
+
+  private convertObjectToUrlParams(obj: any): string {
+    const params: string[] = [];
+    for (const key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        const value = obj[key];
+        if (value !== undefined && value !== null) {
+          params.push(`${encodeURIComponent(key)}=${encodeURIComponent(value)}`);
+        }
+      }
+    }
+    return params.join('&');
   }
 }

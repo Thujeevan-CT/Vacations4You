@@ -94,48 +94,30 @@
         <div class="card-body">
             <h4 class="card-title mb-3">Activity Bookings</h4>
             <div class="table-responsive">
-              <table class="table">
+              <table datatable class="row-border hover" *ngIf="activityBookingList.length">
                 <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Activity Type</th>
-                        <th scope="col">Destination</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Age Restriction</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">No of Participants</th>
-                    </tr>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <!-- <th scope="col">Title</th> -->
+                    <th scope="col">Price</th>
+                    <th scope="col">Participants Count</th>
+                    <th scope="col">Age Restriction</th>
+
+                  </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Wildlife Safari</td>
-                        <td>Yala National Park</td>
-                        <td>2023-12-01</td>
-                        <td>8+</td>
-                        <td>$5000</td>
-                        <td>10</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Cultural Tour</td>
-                        <td>Kandy</td>
-                        <td>2023-12-10</td>
-                        <td>12+</td>
-                        <td>$3000</td>
-                        <td>15</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Beach Relaxation</td>
-                        <td>Unawatuna</td>
-                        <td>2023-12-20</td>
-                        <td>18+</td>
-                        <td>$2000</td>
-                        <td>8</td>
-                    </tr>
+                <tbody *ngFor="let booking of activityBookingList">
+                  <tr>
+                    <th scope="row">{{booking?.user?.first_name}} {{booking?.user?.last_name}}</th>
+                    <td>{{booking?.user?.email}}</td>
+                    <!-- <td>{{booking?.product?.title}}</td> -->
+                    <td>{{booking?.product?.price}}</td>
+                    <td>{{booking?.participants?.length}}</td>
+                    <td>{{booking?.product?.age_restriction}}</td>
+                  
+                  </tr>
                 </tbody>
-            </table>
+              </table>
             
             </div>
         </div>

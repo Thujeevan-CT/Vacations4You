@@ -1,6 +1,12 @@
-export interface CruisePackageBooking {
+import { CruisePackage } from "./cruise-package";
+import { User } from "./user";
 
-    id:string;
-    meal_preference:string,
-    cabin_selection:string
+export interface CruisePackageBooking {
+    user_id:string;
+    product_id:string;
+    meal_preference:string;
+    cabin:string;
+    product_type:string;
+    product?:CruisePackage;
+    user?:User;
 }

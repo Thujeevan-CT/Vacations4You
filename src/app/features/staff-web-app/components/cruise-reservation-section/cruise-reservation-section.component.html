@@ -118,57 +118,26 @@
             <div class="card-body">
                 <h4 class="card-title mb-3">Cruise Bookings</h4>
                 <div class="table-responsive">
-                  <table datatable class="row-border hover">
+                  <table datatable class="row-border hover" *ngIf="cruiseBookingList.length">
                     <thead>
                       <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Departure</th>
-                        <th scope="col">Arrival</th>
-                        <th scope="col">Departure Date</th>
-                        <th scope="col">Arrival Date</th>
-                        <th scope="col">Deck and Cabin Class</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Title</th>
                         <th scope="col">Price</th>
-                        <th scope="col">Duration of the Cruise</th>
-                        <th scope="col">Cruise Provider</th>
+                        <th scope="col">Cabin</th>
                         <th scope="col">Meal Preference</th>
+
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody *ngFor="let booking of cruiseBookingList">
                       <tr>
-                        <th scope="row">1</th>
-                        <td>Colombo</td>
-                        <td>Galle</td>
-                        <td>2023-12-01</td>
-                        <td>2023-12-05</td>
-                        <td>Upper Cabin Deck</td>
-                        <td>$1200</td>
-                        <td>5 days</td>
-                        <td>Ocean Cruises</td>
-                        <td>Vegetarian</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Galle</td>
-                        <td>Trincomalee</td>
-                        <td>2023-12-10</td>
-                        <td>2023-12-15</td>
-                        <td>Lower Cabin Deck</td>
-                        <td>$900</td>
-                        <td>6 days</td>
-                        <td>Sea Adventures</td>
-                        <td>Non-Vegetarian</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Trincomalee</td>
-                        <td>Colombo</td>
-                        <td>2023-12-20</td>
-                        <td>2023-12-25</td>
-                        <td>Upper Middle Deck</td>
-                        <td>$1500</td>
-                        <td>5 days</td>
-                        <td>Tropical Cruises</td>
-                        <td>Vegetarian</td>
+                        <th scope="row">{{booking?.user?.first_name}} {{booking?.user?.last_name}}</th>
+                        <td>{{booking?.user?.email}}</td>
+                        <td>{{booking?.product?.title}}</td>
+                        <td>{{booking?.product?.price}}</td>
+                        <td>{{booking?.cabin}}</td>
+                        <td>{{booking?.meal_preference}}</td>
                       </tr>
                     </tbody>
                   </table>

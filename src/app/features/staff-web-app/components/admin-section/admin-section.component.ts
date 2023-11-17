@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CruisePackage } from 'src/app/core/model/cruise-package';
 import { Response } from 'src/app/core/model/response';
 import { UserRegistration } from 'src/app/core/model/user-registration';
 import { BaseService } from 'src/app/core/service/API/base-service/base-service';
@@ -18,7 +19,7 @@ export class AdminSectionComponent {
   }
 
   registerUser(){
-    this.userRegisrationDetails.role = 'agent';
+    // this.userRegisrationDetails.role = 'agent';
     this._APIBaseService.post<any>('auth/register',this.userRegisrationDetails).subscribe((data:Response)=> {
       switch (data.code){
         case 200 :

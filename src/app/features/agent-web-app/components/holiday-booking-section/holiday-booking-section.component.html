@@ -66,63 +66,24 @@
                 </div>
     </div>
     <div class="col-md-9">
-      <!-- Card 1 -->
-      <div class="card card-ecommerce-3 o-hidden mb-4">
+      <div class="card card-ecommerce-3 o-hidden mb-4" *ngFor="let package of allHolidayPackages">
         <div class="d-flex flex-column flex-sm-row">
             <div class="mb-3 mb-sm-0">
                 <img class="card-img-left" src="../../../../../assets/img/hotelcard1.jpg" alt="" />
             </div>
             <div class="flex-grow-1 p-4">
-                <h5 class="m-0 mb-2 font-weight-bold" style="font-size: 30px;">7 nights</h5>
-                <h5 class="m-0 mb-12" style="font-size: 22px;">Deluxe Beachfront Retreat</h5>
-                <p class="m-0 mt-2 text-small text-muted">Location: Exotic Beach Destination</p>
-                <p class="m-0 mb-12 mb-2 text-small text-muted">Description: Escape to a deluxe beachfront retreat for 7 nights and experience the ultimate relaxation.</p>
-                <p class="m-0 mt-4" style="font-size: 24px;">$1500</p>
+                <h5 class="m-0 mb-2 font-weight-bold" style="font-size: 30px;">{{package.title}}</h5>
+                <h5 class="m-0 mb-12" style="font-size: 22px;">Destination : {{package.destination}}t</h5>
+                <p class="m-0 mt-2 text-small text-muted">Duration: {{package.duration}}</p>
+                <p class="m-0 mb-12 mb-2 text-small text-muted">Description: {{package.description}}</p>
+                <p class="m-0 mt-4" style="font-size: 24px;">{{package.price | currency}}</p>
                 <div class="actions mt-3">
-                    <button class="btn btn-sm btn-icon btn-outline-primary">Book</button>
+                    <button class="btn btn-sm btn-icon btn-outline-primary" data-toggle="modal" (click)="openNewHolidayBooking(package)" data-target="#HolidayBookingModel">Book</button>
                 </div>
             </div>
         </div>
     </div>
     
-  
-      <!-- Card 2 -->
-      <div class="card card-ecommerce-3 o-hidden mb-4">
-        <div class="d-flex flex-column flex-sm-row">
-            <div class="mb-3 mb-sm-0">
-                <img class="card-img-left" src="../../../../../assets/img/hotelcard2.jpg" alt="" />
-            </div>
-            <div class="flex-grow-1 p-4">
-                <h5 class="m-0 mb-2 font-weight-bold" style="font-size: 30px;">5 nights</h5>
-                <h5 class="m-0 mb-12" style="font-size: 22px;">Luxury Resort Getaway</h5>
-                <p class="m-0 mt-2 text-small text-muted">Location: Tropical Paradise Island </p>
-                <p class="m-0 mb-12 mb-2 text-small text-muted">Accommodation Type: Deluxe Suite </p>
-                <p class="m-0 mt-4" style="font-size: 24px;">$1200</p>
-                <div class="actions mt-3">
-                    <button class="btn btn-sm btn-icon btn-outline-primary">Book</button>
-                </div>
-            </div>
-        </div>
-    </div>
-  
-      <!-- Card 3 -->
-      <div class="card card-ecommerce-3 o-hidden mb-4">
-        <div class="d-flex flex-column flex-sm-row">
-            <div class="mb-3 mb-sm-0">
-                <img class="card-img-left" src="../../../../../assets/img/hotelcard3.jpg" alt="" />
-            </div>
-            <div class="flex-grow-1 p-4">
-                <h5 class="m-0 mb-2 font-weight-bold" style="font-size: 30px;">3 nights</h5>
-                <h5 class="m-0 mb-12" style="font-size: 22px;">Mountain Retreat Experience</h5>
-                <p class="m-0 mt-2 text-small text-muted">Location: Serene Mountain Range</p>
-                <p class="m-0 mb-12 mb-2 text-small text-muted">Description: Immerse yourself in nature with a 3-night mountain retreat experience surrounded by breathtaking views.</p>
-                <p class="m-0 mt-4" style="font-size: 24px;">$900</p>
-                <div class="actions mt-3">
-                    <button class="btn btn-sm btn-icon btn-outline-primary">Book</button>
-                </div>
-            </div>
-        </div>
-    </div>
     
   </div>
     
@@ -131,35 +92,51 @@
 
 
 <div class="modal fade" id="HolidayBookingModel" tabindex="-1" role="dialog" aria-labelledby="verifyModalContent1"
-aria-hidden="true">
-<div class="modal-dialog" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="verifyModalContent1_title">New Booking</h5>
-      <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span
-          aria-hidden="true">×</span></button>
-    </div>
-    <div class="modal-body">
-      <form>
-        <!-- <div class="form-group">
-            <label for="picker1">Meal Preference</label>
-            <select class="form-control" [(ngModel)]="newHolidayReservationBooking.no_of_participants" name="no_of_participants">
-              <option [value]="'1st Class'">Vegeterian</option>
-              <option [value]="'2nd Class'">Non-Vegeterian</option>
-            </select>
-        </div> -->
-
-      </form>
-    </div>
-    <div class="modal-footer">
-      <!-- <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button> -->
-      <button class="btn btn-warning" (click)="addNewHolidayBooking(selectedHolidayReservation.id || '')" type="button">Book Now</button>
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="verifyModalContent1_title">New Booking for {{selectedHolidayReservation.title}}</h5>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+      <div class="modal-body">
+        <p class="font-weight-bold">These are the detail related to selected holiday booking.</p>
+        <form>
+          <div class="form-group">
+            <label>Title: &nbsp;</label>
+            <span>{{selectedHolidayReservation.title}}</span>
+          </div>
+          <div class="form-group">
+            <label>Description: &nbsp;</label>
+            <span>{{selectedHolidayReservation.description}}</span>
+          </div>
+          <div class="form-group">
+            <label>Destination: &nbsp;</label>
+            <span>{{selectedHolidayReservation.destination}}</span>
+          </div>
+          <div class="form-group">
+            <label>Duration: &nbsp;</label>
+            <span>{{selectedHolidayReservation.duration}}</span>
+          </div>
+          <div class="form-group">
+            <label>Number of Travelers: &nbsp;</label>
+            <span>{{selectedHolidayReservation.no_of_travelers}}</span>
+          </div>
+          <div class="form-group">
+            <label>Price: &nbsp;</label>
+            <span>{{selectedHolidayReservation.price}}</span>
+          </div>
+          <div class="form-group">
+            <label>Specialty: &nbsp;</label>
+            <span>{{selectedHolidayReservation.specialty}}</span>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" (click)="addNewHolidayBooking(selectedHolidayReservation.id || '')" type="button">Book Now</button>
+      </div>
     </div>
   </div>
 </div>
-<!-- end of col-->
-<!-- travel-different-countries-->
 
-<!-- latest-log-->
-</div>
 

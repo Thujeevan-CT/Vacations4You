@@ -5,6 +5,8 @@ import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { HolidayPackage } from 'src/app/core/model/holiday-packages';
 import { Response } from 'src/app/core/model/response';
+import { HolidayPackageBooking } from 'src/app/core/model/holiday-package-booking';
+import { Environment } from 'src/app/core/environment/environment';
 
 
 @Component({
@@ -17,25 +19,17 @@ export class HolidayReservationSectionComponent implements OnInit{
   public allHolidayPackages: Array<HolidayPackage> = [];
   public holidayPackage = {} as HolidayPackage;
   public newHolidayPackage = {} as HolidayPackage;
-
+  public holidayBookingList: Array<HolidayPackageBooking> = [];
   constructor(private _APIBaseService : BaseService, private _router : Router){
     
   }
-
-
-  // formatDate(timestamp: number | null): string {
-  //   if (timestamp === null) {
-  //     return ''; 
-  //   }
-  //   return this.datePipe.transform(timestamp, 'yyyy-MM-dd') || ''; 
-  // }
 
   changeDateValue(date:string){
     let result = Date.parse(date); 
   }
   ngOnInit(): void {
    this._getAllHolidayPackageData();
-   
+   this._getAllBookingData();
   }
 
   private _getAllHolidayPackageData(){
@@ -51,7 +45,6 @@ export class HolidayReservationSectionComponent implements OnInit{
   }
 
   viewHolidayPackage(id:string){
-    // this.cruisePackage.id = undefined;
     this._APIBaseService.get<any>('package/'+`${id}`).subscribe((data:Response)=> {
       switch(data.code){
         case 200 :
@@ -182,5 +175,34 @@ export class HolidayReservationSectionComponent implements OnInit{
     return false;
   }
   
+
+
+  private _getAllBookingData(){
+    let queryParams = this.convertObjectToUrlParams({product_type : 'holiday', user_id : Environment.userid.id});
+    queryParams = '?' + `${queryParams}`
+    this._APIBaseService.get<any>('book' + queryParams).subscribe((data: Response) => {
+      switch (data.code) {
+        case 200:
+         this.holidayBookingList = data.data;
+          
+      }
+    }, (error: any) => {
+
+    });
+  }
+
+
+  private convertObjectToUrlParams(obj: any): string {
+    const params: string[] = [];
+    for (const key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        const value = obj[key];
+        if (value !== undefined && value !== null) {
+          params.push(`${encodeURIComponent(key)}=${encodeURIComponent(value)}`);
+        }
+      }
+    }
+    return params.join('&');
+  }
 
 }

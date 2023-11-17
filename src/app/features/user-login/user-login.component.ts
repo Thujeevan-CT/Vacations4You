@@ -38,10 +38,13 @@ export class UserLoginComponent {
           case 200 : 
           this._userDetails =  data.data.user;
           Environment.accessToken = data.data.token;
-          if (this._userDetails.role === 'staff') {
-            this._router.navigate(['/vacation4u-user'], { queryParams: this._userDetails});
+          Environment.userid.id = data.data.user.id;
+          Environment.userid.first_name = data.data.user['firstName'];
+          Environment.userid.last_name = data.data.user['lastName'];
+          if (this._userDetails.role === 'staff' || this._userDetails.role === 'admin') {
+            this._router.navigate(['/vacation4u-staff'], { queryParams: this._userDetails});
           } else if (this._userDetails.role === 'agent'){
-            this._router.navigate(['/vacation4u-user'], { queryParams: this._userDetails});
+            this._router.navigate(['/vacation4u-agent'], { queryParams: this._userDetails});
           }
           break;
 

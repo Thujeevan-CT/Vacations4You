@@ -11,6 +11,7 @@ import { ActivityBookingSectionComponent } from '../components/activity-booking-
 import { HolidayBookingSectionComponent } from '../components/holiday-booking-section/holiday-booking-section.component';
 import { HomeSectionComponent } from '../components/home-section/home-section.component';
 import { BookingListSectionComponent } from '../components/booking-list-section/booking-list-section.component';
+import { DataTablesModule } from 'angular-datatables';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { BookingListSectionComponent } from '../components/booking-list-section/
   imports: [
     CommonModule,
     AgentMainDashboardRoutingModule,
-    FormsModule
+    FormsModule,
+    DataTablesModule
   ]
 })
 export class AgentMainDashboardModule { }
