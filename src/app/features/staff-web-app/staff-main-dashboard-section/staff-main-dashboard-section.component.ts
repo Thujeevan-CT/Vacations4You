@@ -12,21 +12,19 @@ export class StaffMainDashboardSectionComponent implements OnInit{
   public userName: string = Environment.userid.first_name;
 
   constructor(private _APIBaseService : BaseService, private _router : Router){
-    if(Environment.accessToken ===  ''){
-      this._router.navigate(['/vacation4u-login']);
-     }
+
   }
   ngOnInit(): void {
    
   }
 
-  public currentView:string  = '01';
+  // public currentView:string  = '01';
 
   
 
   changeRequestedView(viewId:string){
 
-    this.currentView = viewId;
+   // this.currentView = viewId;
 
 
 

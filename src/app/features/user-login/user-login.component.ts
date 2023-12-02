@@ -16,10 +16,7 @@ import Swal from 'sweetalert2';
 })
 export class UserLoginComponent {
 
-  public user: LoginUser = {
-    email : '',
-    password : ''
-  };
+  public user = {} as LoginUser;
 
   private _userDetails = {} as User;
   
@@ -29,55 +26,30 @@ export class UserLoginComponent {
 
   public userLogin(){
     if([null,'', undefined].includes(this.user['email']) || [null,'', undefined].includes(this.user['password'])){
-      console.log('1st exception');
+      Swal.fire({
+        icon: 'success',
+        title: 'Success',
+        text: 'Please fill all the required fields!'
+      });
       return;
     }
     this._APIBaseService.post<any>('auth/login', this.user).subscribe(
       (data:Response) => {
-        switch(data.code){
-          case 200 : 
           this._userDetails =  data.data.user;
-          Environment.accessToken = data.data.token;
-          Environment.userid.id = data.data.user.id;
-          Environment.userid.first_name = data.data.user['firstName'];
-          Environment.userid.last_name = data.data.user['lastName'];
-          if (this._userDetails.role === 'staff' || this._userDetails.role === 'admin') {
-            this._router.navigate(['/vacation4u-staff'], { queryParams: this._userDetails});
-          } else if (this._userDetails.role === 'agent'){
-            this._router.navigate(['/vacation4u-agent'], { queryParams: this._userDetails});
-          }
-          break;
-
-          case 400 : 
-          Swal.fire({
-            icon: 'success',
-            title: 'Success',
-            text: data.message
-          });
-          break;
-          
-        }
+          this._router.navigate(['/movie-app-dashboard'], { queryParams: this._userDetails});
       },
       (error: any) => {
-        if(error.error.code === 422){
-          Swal.fire({
-            icon: 'error',
-            title: 'Error ',
-            html: error.error.message.map((element:string) => `<span>${element}</span>`).join('<br>')
-          });
-        } else {
-          Swal.fire({
-            icon: 'error',
-            title: 'Error ',
-            text: error.error.message
-          });
-        }
+        Swal.fire({
+          icon: 'error',
+          title: 'Error!',
+          text: 'Something went wrong! please try again'
+        });
       }
     );
   }
 
 
-  userRegistration():void {
-    this._router.navigate(['/vacation4u-registration']);
-  }
+  // userRegistration():void {
+  //   this._router.navigate(['/vacation4u-registration']);
+  // }
 }

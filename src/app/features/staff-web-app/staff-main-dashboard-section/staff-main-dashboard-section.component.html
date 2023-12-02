@@ -53,37 +53,19 @@
         <!-- ============ Body content start ============= -->
         <div class="main-content">
             <div class="breadcrumb">
-                <h1 class="mr-2" *ngIf="currentView === '01'">Data Insights</h1>
-                <h1 class="mr-2" *ngIf="currentView === '02'">Holiday Reseravations & Bookings</h1>
-                <h1 class="mr-2" *ngIf="currentView === '03'">Cruise Reseravations & Bookings</h1>
-                <h1 class="mr-2" *ngIf="currentView === '04'">Activity Reseravations & Bookings</h1>
-                <h1 class="mr-2" *ngIf="currentView === '05'">Administrator</h1>
+                <h1 class="mr-2" >Main Dashboard</h1>
                 <!-- <ul>
                     <li><a href="">Dashboard</a></li>
                     <li>Version 1</li>
                 </ul> -->
             </div>
             <div class="separator-breadcrumb border-top"></div>
-            <app-dashboard-insights-section *ngIf="currentView === '01'">
-                
-            </app-dashboard-insights-section>
-     
-              
-            <app-cruise-reservation-section *ngIf="currentView === '03'">
+           
+            <app-all-movie-list-view>
 
-            </app-cruise-reservation-section>
+            </app-all-movie-list-view>
 
-            <app-holiday-reservation-section *ngIf="currentView === '02'">
 
-            </app-holiday-reservation-section>
-
-            <app-activity-reservation-section *ngIf="currentView === '04'">
-
-            </app-activity-reservation-section>
-
-            <app-admin-section  *ngIf="currentView === '05'">
-
-            </app-admin-section>
         </div><!-- Footer Start -->
         <div class="flex-grow-1"></div>
 
